@@ -1,74 +1,114 @@
 package com.bijlipay.model;
 
-
-import org.checkerframework.checker.units.qual.C;
+import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
-import java.util.Date;
-
 @Entity
-@Table(name = "settlement_request_response_data")
+@Table(
+        name = "settlement_request_response_data"
+)
 public class SettlementRequestResponse {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
+    @Column(
+            name = "id"
+    )
     private long id;
-    @Column(name = "tid")
+    @Column(
+            name = "tid"
+    )
     private String tid;
-
-    @Column(name = "mid")
+    @Column(
+            name = "mid"
+    )
     private String mid;
-
-    @Column(name = "vpa")
+    @Column(
+            name = "vpa"
+    )
     private String vpa;
-
-    @Column(name = "unique_id")
+    @Column(
+            name = "unique_id"
+    )
     private String uniqueId;
-
-    @Column(name = "from_date")
+    @Column(
+            name = "from_date"
+    )
     private String fromDate;
-    @Column(name = "to_date")
+    @Column(
+            name = "to_date"
+    )
     private String toDate;
-    @Column(name = "available_date")
+    @Column(
+            name = "available_date"
+    )
     private Date availableDate;
-
-    @Column(name = "expiry_date")
+    @Column(
+            name = "expiry_date"
+    )
     private Date expiryDate;
-    @Column(name = "file_url",columnDefinition = "TEXT")
+    @Column(
+            name = "file_url",
+            columnDefinition = "TEXT"
+    )
     private String fileUrl;
-    @Column(name = "settlement_s3_url",columnDefinition = "TEXT")
+    @Column(
+            name = "settlement_s3_url",
+            columnDefinition = "TEXT"
+    )
     private String settlementS3Url;
-
-    @Column(name = "is_file_exist",columnDefinition = "tinyint(1) default 0")
+    @Column(
+            name = "is_file_exist",
+            columnDefinition = "tinyint(1) default 0"
+    )
     private boolean isFileExist;
-
-    @ManyToOne(optional = true)
-    @JoinColumn(name = "user_id",referencedColumnName = "user_id")
+    @ManyToOne(
+            optional = true
+    )
+    @JoinColumn(
+            name = "user_id",
+            referencedColumnName = "user_id"
+    )
     private User user;
-
-    @Column(name = "category_type")
+    @Column(
+            name = "category_type"
+    )
     private String categoryType;
-
-    @Column(name = "file_name")
+    @Column(
+            name = "file_name"
+    )
     private String fileName;
-
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_at")
+    @Column(
+            name = "created_at"
+    )
     private Date createdAt;
-
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated_at")
+    @Column(
+            name = "updated_at"
+    )
     private Date updatedAt;
-
-    @Column(name = "mime_type")
+    @Column(
+            name = "mime_type"
+    )
     private String fileType;
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(long id) {
@@ -76,7 +116,7 @@ public class SettlementRequestResponse {
     }
 
     public String getTid() {
-        return tid;
+        return this.tid;
     }
 
     public void setTid(String tid) {
@@ -84,7 +124,7 @@ public class SettlementRequestResponse {
     }
 
     public String getMid() {
-        return mid;
+        return this.mid;
     }
 
     public void setMid(String mid) {
@@ -92,7 +132,7 @@ public class SettlementRequestResponse {
     }
 
     public String getVpa() {
-        return vpa;
+        return this.vpa;
     }
 
     public void setVpa(String vpa) {
@@ -100,7 +140,7 @@ public class SettlementRequestResponse {
     }
 
     public String getUniqueId() {
-        return uniqueId;
+        return this.uniqueId;
     }
 
     public void setUniqueId(String uniqueId) {
@@ -108,7 +148,7 @@ public class SettlementRequestResponse {
     }
 
     public String getFromDate() {
-        return fromDate;
+        return this.fromDate;
     }
 
     public void setFromDate(String fromDate) {
@@ -116,7 +156,7 @@ public class SettlementRequestResponse {
     }
 
     public String getToDate() {
-        return toDate;
+        return this.toDate;
     }
 
     public void setToDate(String toDate) {
@@ -124,7 +164,7 @@ public class SettlementRequestResponse {
     }
 
     public Date getAvailableDate() {
-        return availableDate;
+        return this.availableDate;
     }
 
     public void setAvailableDate(Date availableDate) {
@@ -132,7 +172,7 @@ public class SettlementRequestResponse {
     }
 
     public Date getExpiryDate() {
-        return expiryDate;
+        return this.expiryDate;
     }
 
     public void setExpiryDate(Date expiryDate) {
@@ -140,7 +180,7 @@ public class SettlementRequestResponse {
     }
 
     public String getFileUrl() {
-        return fileUrl;
+        return this.fileUrl;
     }
 
     public void setFileUrl(String fileUrl) {
@@ -148,7 +188,7 @@ public class SettlementRequestResponse {
     }
 
     public String getSettlementS3Url() {
-        return settlementS3Url;
+        return this.settlementS3Url;
     }
 
     public void setSettlementS3Url(String settlementS3Url) {
@@ -156,15 +196,15 @@ public class SettlementRequestResponse {
     }
 
     public boolean isFileExist() {
-        return isFileExist;
+        return this.isFileExist;
     }
 
     public void setFileExist(boolean fileExist) {
-        isFileExist = fileExist;
+        this.isFileExist = fileExist;
     }
 
     public User getUser() {
-        return user;
+        return this.user;
     }
 
     public void setUser(User user) {
@@ -172,7 +212,7 @@ public class SettlementRequestResponse {
     }
 
     public Date getCreatedAt() {
-        return createdAt;
+        return this.createdAt;
     }
 
     public void setCreatedAt(Date createdAt) {
@@ -180,7 +220,7 @@ public class SettlementRequestResponse {
     }
 
     public Date getUpdatedAt() {
-        return updatedAt;
+        return this.updatedAt;
     }
 
     public void setUpdatedAt(Date updatedAt) {
@@ -188,7 +228,7 @@ public class SettlementRequestResponse {
     }
 
     public String getCategoryType() {
-        return categoryType;
+        return this.categoryType;
     }
 
     public void setCategoryType(String categoryType) {
@@ -196,7 +236,7 @@ public class SettlementRequestResponse {
     }
 
     public String getFileName() {
-        return fileName;
+        return this.fileName;
     }
 
     public void setFileName(String fileName) {
@@ -204,7 +244,7 @@ public class SettlementRequestResponse {
     }
 
     public String getFileType() {
-        return fileType;
+        return this.fileType;
     }
 
     public void setFileType(String fileType) {

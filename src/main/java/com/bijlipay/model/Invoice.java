@@ -1,22 +1,33 @@
 package com.bijlipay.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "invoice")
+@Table(
+        name = "invoice"
+)
 public class Invoice {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "invoice_id")
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
+    @Column(
+            name = "invoice_id"
+    )
     private int invoiceId;
-    private transient int type; // 1. mdr invoice 2. rental invoice
+    private transient int type;
     private String tid;
     private String email;
     private String invoiceDate;
     private String invoiceType;
 
     public int getInvoiceId() {
-        return invoiceId;
+        return this.invoiceId;
     }
 
     public void setInvoiceId(int invoiceId) {
@@ -24,7 +35,7 @@ public class Invoice {
     }
 
     public String getInvoiceType() {
-        return invoiceType;
+        return this.invoiceType;
     }
 
     public void setInvoiceType(String invoiceType) {
@@ -32,7 +43,7 @@ public class Invoice {
     }
 
     public int getType() {
-        return type;
+        return this.type;
     }
 
     public void setType(int type) {
@@ -40,7 +51,7 @@ public class Invoice {
     }
 
     public String getTid() {
-        return tid;
+        return this.tid;
     }
 
     public void setTid(String tid) {
@@ -48,7 +59,7 @@ public class Invoice {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -56,15 +67,14 @@ public class Invoice {
     }
 
     public String getInvoiceDate() {
-        return invoiceDate;
+        return this.invoiceDate;
     }
 
     public void setInvoiceDate(String invoiceDate) {
         this.invoiceDate = invoiceDate;
     }
 
-    @Override
     public String toString() {
-        return "Invoice{" + "invoiceId=" + invoiceId + ", type=" + type + ", tid='" + tid + '\'' + ", email='" + email + '\'' + ", invoiceDate='" + invoiceDate + '\'' + ", invoiceType='" + invoiceType + '\'' + '}';
+        return "Invoice{invoiceId=" + this.invoiceId + ", type=" + this.type + ", tid='" + this.tid + "', email='" + this.email + "', invoiceDate='" + this.invoiceDate + "', invoiceType='" + this.invoiceType + "'}";
     }
 }

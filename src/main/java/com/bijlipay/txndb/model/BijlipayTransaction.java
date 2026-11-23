@@ -1,85 +1,159 @@
 package com.bijlipay.txndb.model;
 
+import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.Table;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
-import java.util.Date;
-
 @Entity
-@Table(name = "bijlipayTransaction", indexes = {
-    // Primary lookup: almost every query filters on terminal_id first
-    @Index(name = "idx_tid_resp_code_resp_time", columnList = "terminal_id, txn_response_code, response_received_time DESC"),
-    // Covers date-range + status + type queries and ORDER BY response_received_time DESC
-    @Index(name = "idx_tid_resp_time", columnList = "terminal_id, response_received_time DESC"),
-    // Covers the mti='0100' dedup subquery (GROUP BY terminal_id, stan)
-    @Index(name = "idx_mti_tid_stan", columnList = "mti, terminal_id, stan"),
-    // Covers duplicate-RRN subquery (GROUP BY rrn_number HAVING COUNT > 1)
-    @Index(name = "idx_tid_rrn_mti", columnList = "terminal_id, rrn_number, mti"),
-    // Covers today/yesterday aggregate queries filtered by terminal_id + mti + txn_response_code + txn_type
-    @Index(name = "idx_tid_mti_resp_code_type", columnList = "terminal_id, mti, txn_response_code, txn_type")
-})
+@Table(
+        name = "bijlipayTransaction",
+        indexes = {@Index(
+                name = "idx_tid_resp_code_resp_time",
+                columnList = "terminal_id, txn_response_code, response_received_time DESC"
+        ), @Index(
+                name = "idx_tid_resp_time",
+                columnList = "terminal_id, response_received_time DESC"
+        ), @Index(
+                name = "idx_mti_tid_stan",
+                columnList = "mti, terminal_id, stan"
+        ), @Index(
+                name = "idx_tid_rrn_mti",
+                columnList = "terminal_id, rrn_number, mti"
+        ), @Index(
+                name = "idx_tid_mti_resp_code_type",
+                columnList = "terminal_id, mti, txn_response_code, txn_type"
+        )}
+)
 public class BijlipayTransaction {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "transaction_id", nullable = false)
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
+    @Column(
+            name = "transaction_id",
+            nullable = false
+    )
     private long id;
-    @Column(name = "mti", nullable = true)
+    @Column(
+            name = "mti",
+            nullable = true
+    )
     private String mti;
-    @Column(name = "txn_type", nullable = true)
+    @Column(
+            name = "txn_type",
+            nullable = true
+    )
     private String txnType;
-    @Column(name = "terminal_id", nullable = true)
+    @Column(
+            name = "terminal_id",
+            nullable = true
+    )
     private String terminalId;
-    @Column(name = "merchant_id", nullable = true)
+    @Column(
+            name = "merchant_id",
+            nullable = true
+    )
     private String merchantId;
-    @Column(name = "txn_date", nullable = true)
+    @Column(
+            name = "txn_date",
+            nullable = true
+    )
     private String txnDate;
-    @Column(name = "txn_time", nullable = true)
+    @Column(
+            name = "txn_time",
+            nullable = true
+    )
     private String txnTime;
-    @Column(name = "txn_amount", nullable = true)
+    @Column(
+            name = "txn_amount",
+            nullable = true
+    )
     private Double txnAmount;
-    @Column(name = "txn_response_code", nullable = true)
+    @Column(
+            name = "txn_response_code",
+            nullable = true
+    )
     private String txnResponseCode;
-    @Column(name = "response_received_time", nullable = true)
+    @Column(
+            name = "response_received_time",
+            nullable = true
+    )
     private Date responseReceivedTime;
-    @Column(name = "rrn_number", nullable = true)
+    @Column(
+            name = "rrn_number",
+            nullable = true
+    )
     private String rRNumber;
-    @Column(name = "stan", nullable = true)
+    @Column(
+            name = "stan",
+            nullable = true
+    )
     private String stan;
-    @Column(name = "invoice_number", nullable = true)
+    @Column(
+            name = "invoice_number",
+            nullable = true
+    )
     private String invoiceNumber;
-    @Column(name = "batch_number", nullable = true)
+    @Column(
+            name = "batch_number",
+            nullable = true
+    )
     private String batchNumber;
-    @Column(name = "txn_additional_amount", nullable = true)
+    @Column(
+            name = "txn_additional_amount",
+            nullable = true
+    )
     private Double TxnAdditionalAmount;
-    @Column(name = "urn", nullable = true)
+    @Column(
+            name = "urn",
+            nullable = true
+    )
     private String urn;
-
-    @Column(name = "masked_card_number", nullable = true)
+    @Column(
+            name = "masked_card_number",
+            nullable = true
+    )
     private String maskedcardnumber;
-
-    @Column(name = "txn_correlation_id", nullable = true)
+    @Column(
+            name = "txn_correlation_id",
+            nullable = true
+    )
     private String txnCorrelationId;
-
-    @Column(name = "auth_code", nullable = true)
+    @Column(
+            name = "auth_code",
+            nullable = true
+    )
     private String authCode;
-
-    @Column(name = "panentry_mode", nullable = true)
+    @Column(
+            name = "panentry_mode",
+            nullable = true
+    )
     private String panEntryMode;
-
-    @Column(name = "bin",nullable = true)
+    @Column(
+            name = "bin",
+            nullable = true
+    )
     private String bin;
-
-    @Column(name = "customer_vpa",nullable = true)
+    @Column(
+            name = "customer_vpa",
+            nullable = true
+    )
     private String customerVpa;
-
     @UpdateTimestamp
-    @Column(name = "updated_at", nullable = true)
+    @Column(
+            name = "updated_at",
+            nullable = true
+    )
     private Date updatedAt;
 
-
     public String getMaskedcardnumber() {
-        return maskedcardnumber;
+        return this.maskedcardnumber;
     }
 
     public void setMaskedcardnumber(String maskedcardnumber) {
@@ -87,7 +161,7 @@ public class BijlipayTransaction {
     }
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(long id) {
@@ -95,7 +169,7 @@ public class BijlipayTransaction {
     }
 
     public String getMti() {
-        return mti;
+        return this.mti;
     }
 
     public void setMti(Object mti) {
@@ -103,7 +177,7 @@ public class BijlipayTransaction {
     }
 
     public String getTxnType() {
-        return txnType;
+        return this.txnType;
     }
 
     public void setTxnType(Object txnType) {
@@ -111,7 +185,7 @@ public class BijlipayTransaction {
     }
 
     public String getTerminalId() {
-        return terminalId;
+        return this.terminalId;
     }
 
     public void setTerminalId(Object terminalId) {
@@ -119,7 +193,7 @@ public class BijlipayTransaction {
     }
 
     public String getMerchantId() {
-        return merchantId;
+        return this.merchantId;
     }
 
     public void setMerchantId(Object merchantId) {
@@ -127,7 +201,7 @@ public class BijlipayTransaction {
     }
 
     public String getTxnDate() {
-        return txnDate;
+        return this.txnDate;
     }
 
     public void setTxnDate(Object txnDate) {
@@ -135,7 +209,7 @@ public class BijlipayTransaction {
     }
 
     public String getTxnTime() {
-        return txnTime;
+        return this.txnTime;
     }
 
     public void setTxnTime(Object txnTime) {
@@ -143,15 +217,15 @@ public class BijlipayTransaction {
     }
 
     public Double getTxnAmount() {
-        return txnAmount;
+        return this.txnAmount;
     }
 
     public void setTxnAmount(Object txnAmount) {
-        this.txnAmount = (txnAmount == null || txnAmount.toString() == "") ? 0.00 : Double.parseDouble(txnAmount.toString());
+        this.txnAmount = txnAmount != null && txnAmount.toString() != "" ? Double.parseDouble(txnAmount.toString()) : (double)0.0F;
     }
 
     public String getTxnResponseCode() {
-        return txnResponseCode;
+        return this.txnResponseCode;
     }
 
     public void setTxnResponseCode(Object txnResponseCode) {
@@ -159,7 +233,7 @@ public class BijlipayTransaction {
     }
 
     public Date getResponseReceivedTime() {
-        return responseReceivedTime;
+        return this.responseReceivedTime;
     }
 
     public void setResponseReceivedTime(Date responseReceivedTime) {
@@ -167,7 +241,7 @@ public class BijlipayTransaction {
     }
 
     public String getrRNumber() {
-        return rRNumber;
+        return this.rRNumber;
     }
 
     public void setrRNumber(Object rRNumber) {
@@ -175,7 +249,7 @@ public class BijlipayTransaction {
     }
 
     public String getStan() {
-        return stan;
+        return this.stan;
     }
 
     public void setStan(Object stan) {
@@ -183,7 +257,7 @@ public class BijlipayTransaction {
     }
 
     public String getInvoiceNumber() {
-        return invoiceNumber;
+        return this.invoiceNumber;
     }
 
     public void setInvoiceNumber(Object invoiceNumber) {
@@ -191,7 +265,7 @@ public class BijlipayTransaction {
     }
 
     public String getBatchNumber() {
-        return batchNumber;
+        return this.batchNumber;
     }
 
     public void setBatchNumber(Object batchNumber) {
@@ -199,15 +273,15 @@ public class BijlipayTransaction {
     }
 
     public Double getTxnAdditionalAmount() {
-        return TxnAdditionalAmount;
+        return this.TxnAdditionalAmount;
     }
 
     public void setTxnAdditionalAmount(Object txnAdditionalAmount) {
-        this.TxnAdditionalAmount = (txnAdditionalAmount == null || txnAdditionalAmount.toString() == "") ? 0.00 : Double.parseDouble(txnAdditionalAmount.toString());
+        this.TxnAdditionalAmount = txnAdditionalAmount != null && txnAdditionalAmount.toString() != "" ? Double.parseDouble(txnAdditionalAmount.toString()) : (double)0.0F;
     }
 
     public String getUrn() {
-        return urn;
+        return this.urn;
     }
 
     public void setUrn(Object urn) {
@@ -215,7 +289,7 @@ public class BijlipayTransaction {
     }
 
     public String getTxnCorrelationId() {
-        return txnCorrelationId;
+        return this.txnCorrelationId;
     }
 
     public void setTxnCorrelationId(Object txnCorrelationId) {
@@ -223,7 +297,7 @@ public class BijlipayTransaction {
     }
 
     public String getAuthCode() {
-        return authCode;
+        return this.authCode;
     }
 
     public void setAuthCode(Object authCode) {
@@ -231,7 +305,7 @@ public class BijlipayTransaction {
     }
 
     public String getPanEntryMode() {
-        return panEntryMode;
+        return this.panEntryMode;
     }
 
     public void setPanEntryMode(String panEntryMode) {
@@ -239,7 +313,7 @@ public class BijlipayTransaction {
     }
 
     public String getBin() {
-        return bin;
+        return this.bin;
     }
 
     public void setBin(String bin) {
@@ -247,7 +321,7 @@ public class BijlipayTransaction {
     }
 
     public String getCustomerVpa() {
-        return customerVpa;
+        return this.customerVpa;
     }
 
     public void setCustomerVpa(String customerVpa) {
@@ -255,38 +329,15 @@ public class BijlipayTransaction {
     }
 
     public Date getUpdatedAt() {
-        return updatedAt;
+        return this.updatedAt;
     }
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    @Override
     public String toString() {
-        return "BijlipayTransaction{" +
-                "id=" + id +
-                ", mti='" + mti + '\'' +
-                ", txnType='" + txnType + '\'' +
-                ", terminalId='" + terminalId + '\'' +
-                ", merchantId='" + merchantId + '\'' +
-                ", txnDate='" + txnDate + '\'' +
-                ", txnTime='" + txnTime + '\'' +
-                ", txnAmount=" + txnAmount +
-                ", txnResponseCode='" + txnResponseCode + '\'' +
-                ", responseReceivedTime=" + responseReceivedTime +
-                ", rRNumber='" + rRNumber + '\'' +
-                ", stan='" + stan + '\'' +
-                ", invoiceNumber='" + invoiceNumber + '\'' +
-                ", batchNumber='" + batchNumber + '\'' +
-                ", TxnAdditionalAmount=" + TxnAdditionalAmount +
-                ", urn='" + urn + '\'' +
-                ", maskedcardnumber='" + maskedcardnumber + '\'' +
-                ", txnCorrelationId='" + txnCorrelationId + '\'' +
-                ", authCode='" + authCode + '\'' +
-                ", panEntryMode='" + panEntryMode + '\'' +
-                ", bin='" + bin + '\'' +
-                ", customerVpa='" + customerVpa + '\'' +
-                '}';
+        long var10000 = this.id;
+        return "BijlipayTransaction{id=" + var10000 + ", mti='" + this.mti + "', txnType='" + this.txnType + "', terminalId='" + this.terminalId + "', merchantId='" + this.merchantId + "', txnDate='" + this.txnDate + "', txnTime='" + this.txnTime + "', txnAmount=" + this.txnAmount + ", txnResponseCode='" + this.txnResponseCode + "', responseReceivedTime=" + String.valueOf(this.responseReceivedTime) + ", rRNumber='" + this.rRNumber + "', stan='" + this.stan + "', invoiceNumber='" + this.invoiceNumber + "', batchNumber='" + this.batchNumber + "', TxnAdditionalAmount=" + this.TxnAdditionalAmount + ", urn='" + this.urn + "', maskedcardnumber='" + this.maskedcardnumber + "', txnCorrelationId='" + this.txnCorrelationId + "', authCode='" + this.authCode + "', panEntryMode='" + this.panEntryMode + "', bin='" + this.bin + "', customerVpa='" + this.customerVpa + "'}";
     }
 }

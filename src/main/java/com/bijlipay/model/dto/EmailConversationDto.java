@@ -12,7 +12,7 @@ public class EmailConversationDto {
     private String attachments;
 
     public String getReply_to() {
-        return reply_to;
+        return this.reply_to;
     }
 
     public void setReply_to(String reply_to) {
@@ -20,7 +20,7 @@ public class EmailConversationDto {
     }
 
     public String getTo() {
-        return to;
+        return this.to;
     }
 
     public void setTo(String to) {
@@ -28,7 +28,7 @@ public class EmailConversationDto {
     }
 
     public String getFrom() {
-        return from;
+        return this.from;
     }
 
     public void setFrom(String from) {
@@ -36,7 +36,7 @@ public class EmailConversationDto {
     }
 
     public String getSubject() {
-        return subject;
+        return this.subject;
     }
 
     public void setSubject(String subject) {
@@ -44,7 +44,7 @@ public class EmailConversationDto {
     }
 
     public String getBody() {
-        return body;
+        return this.body;
     }
 
     public void setBody(String body) {
@@ -52,7 +52,7 @@ public class EmailConversationDto {
     }
 
     public String getCc() {
-        return cc;
+        return this.cc;
     }
 
     public void setCc(String cc) {
@@ -60,7 +60,7 @@ public class EmailConversationDto {
     }
 
     public String getBcc() {
-        return bcc;
+        return this.bcc;
     }
 
     public void setBcc(String bcc) {
@@ -68,7 +68,7 @@ public class EmailConversationDto {
     }
 
     public String getPerson_name() {
-        return person_name;
+        return this.person_name;
     }
 
     public void setPerson_name(String person_name) {
@@ -76,15 +76,14 @@ public class EmailConversationDto {
     }
 
     public String getAttachments() {
-        return attachments;
+        return this.attachments;
     }
 
     public void setAttachments(String attachments) {
         this.attachments = attachments;
     }
 
-    @Override
     public String toString() {
-        return "{" + "reply_to='" + reply_to + '\'' + ", to='" + to + '\'' + ", from='" + from + '\'' + ", subject='" + subject + '\'' + ", body='" + body + '\'' + ", cc='" + cc + '\'' + ", bcc='" + bcc + '\'' + ", person_name='" + person_name + '\'' + ", attachments='" + attachments + '\'' + '}';
+        return "{reply_to='" + this.reply_to + "', to='" + this.to + "', from='" + this.from + "', subject='" + this.subject + "', body='" + this.body + "', cc='" + this.cc + "', bcc='" + this.bcc + "', person_name='" + this.person_name + "', attachments='" + this.attachments + "'}";
     }
 }

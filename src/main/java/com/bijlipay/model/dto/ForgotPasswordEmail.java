@@ -4,7 +4,7 @@ public class ForgotPasswordEmail extends BaseEmail {
     private String passwordToken;
 
     public String getPasswordToken() {
-        return passwordToken;
+        return this.passwordToken;
     }
 
     public void setPasswordToken(String passwordToken) {

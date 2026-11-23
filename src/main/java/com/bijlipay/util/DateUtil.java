@@ -1,9 +1,5 @@
 package com.bijlipay.util;
 
-
-import org.apache.commons.lang.time.DateUtils;
-//import org.apache.commons.lang3.time.DateUtils;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -14,12 +10,13 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.commons.lang.time.DateUtils;
 
 public class DateUtil {
     public static String yesterday() {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -1);
+        cal.add(5, -1);
         String currentDate = formatter.format(cal.getTime());
         System.out.println("yesterday " + currentDate);
         return currentDate;
@@ -29,53 +26,59 @@ public class DateUtil {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String initiateDate = dateFormatter.format(cal.getTime());
-        cal.add(Calendar.HOUR, +1);
+        cal.add(10, 1);
         String expiryDate = dateFormatter.format(cal.getTime());
-        Map<String, String> dates = new HashMap<>();
+        Map<String, String> dates = new HashMap();
         dates.put("initialDate", initiateDate);
         dates.put("expiryDate", expiryDate);
         return dates;
     }
 
     public static Date longtoDate(long convert) {
-        Date date = new Date(convert * 1000);
+        Date date = new Date(convert * 1000L);
         SimpleDateFormat dateToString = new SimpleDateFormat("yyyy-MM-dd");
         Date rdate = null;
+
         try {
             rdate = dateToString.parse(dateToString.format(date));
-            System.out.println("rdate " + rdate);
+            System.out.println("rdate " + String.valueOf(rdate));
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
         return rdate;
     }
 
     public static String longtoDate(long convert, String format) throws ParseException {
-        Date date = new Date(convert * 1000);
+        Date date = new Date(convert * 1000L);
         SimpleDateFormat dateToString = new SimpleDateFormat("yyyy-MM-dd");
         Date rdate = null;
+
         try {
             rdate = dateToString.parse(dateToString.format(date));
-            System.out.println("rdate " + rdate);
+            System.out.println("rdate " + String.valueOf(rdate));
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        String formattedDate = new SimpleDateFormat(format).format(rdate);
+
+        String formattedDate = (new SimpleDateFormat(format)).format(rdate);
         System.out.println("Formatted date : ------- : {}" + formattedDate);
         return formattedDate;
     }
 
     public static String longtoDateForQr(long convert, String format) throws ParseException {
-        Date date = new Date(convert * 1000);
+        Date date = new Date(convert * 1000L);
         SimpleDateFormat dateToString = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date rdate = null;
+
         try {
             rdate = dateToString.parse(dateToString.format(date));
-            System.out.println("rdate " + rdate);
+            System.out.println("rdate " + String.valueOf(rdate));
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        String formattedDate = new SimpleDateFormat(format).format(rdate);
+
+        String formattedDate = (new SimpleDateFormat(format)).format(rdate);
         System.out.println("Formatted date : ------- : {}" + formattedDate);
         return formattedDate;
     }
@@ -88,14 +91,16 @@ public class DateUtil {
     }
 
     public static Date convertStringToDate(String stringCellValue, String format) {
-        if (!(stringCellValue == "")) {
+        if (stringCellValue != "") {
             SimpleDateFormat before = new SimpleDateFormat(format);
             Date date = null;
+
             try {
                 date = before.parse(stringCellValue);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+
             return date;
         } else {
             return null;
@@ -127,17 +132,15 @@ public class DateUtil {
 
     public static Date lastThreeMonthDate() {
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.MONTH, -3);
+        cal.add(2, -3);
         Date date = cal.getTime();
         return date;
     }
 
     public static Date addOneDay(Date date) {
         Date newDate = DateUtils.addDays(new Date(), 1);
-//        Date newDate = DateUtils.addDays(date, 1);
         return newDate;
     }
-
 
     public static Date stringToDate(String date) throws ParseException {
         SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -149,7 +152,6 @@ public class DateUtil {
         SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return dateFormatter.format(date);
     }
-
 
     public static String formattedDate(String time) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
@@ -167,14 +169,8 @@ public class DateUtil {
 
     public static String stringToDateFroAxis(String date) {
         DateTimeFormatter formatter = DateTimeFormatter.ISO_ZONED_DATE_TIME;
-
-        // Parse the input string to ZonedDateTime
         ZonedDateTime zonedDateTime = ZonedDateTime.parse(date, formatter);
-
-        // Define output format
         DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-
-        // Format the ZonedDateTime to the desired output format
         String output = zonedDateTime.format(outputFormatter);
         return output;
     }
@@ -182,13 +178,8 @@ public class DateUtil {
     public static String kvbDateFormat(String date) {
         DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime localDateTime = LocalDateTime.parse(date, inputFormatter);
-
-        // Step 2: Convert LocalDateTime to ZonedDateTime with a specific time zone
-        // You need to choose a time zone, e.g., Asia/Kolkata (UTC+5:30)
-        ZoneId zoneId = ZoneId.of("Asia/Kolkata"); // Change to desired time zone
+        ZoneId zoneId = ZoneId.of("Asia/Kolkata");
         ZonedDateTime zonedDateTime = localDateTime.atZone(zoneId);
-
-        // Step 3: Format the ZonedDateTime to the desired output format
         DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX");
         String outputDateTimeString = zonedDateTime.format(outputFormatter);
         return outputDateTimeString;
@@ -196,7 +187,7 @@ public class DateUtil {
 
     public static Date addThreeMonthDate() {
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.MONTH, 3);
+        cal.add(2, 3);
         Date date = cal.getTime();
         return date;
     }

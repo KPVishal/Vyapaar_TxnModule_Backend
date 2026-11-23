@@ -12,22 +12,19 @@ public class UserAuthenticationServiceImp implements UserAuthenticationService {
     @Autowired
     private UserAuthenticationRepo userAuthenticateRepo;
 
-    @Override
     public UserAuthentication getUser(long l) {
-        UserAuthentication username = userAuthenticateRepo.getuser(l);
+        UserAuthentication username = this.userAuthenticateRepo.getuser(l);
         return username;
     }
 
-    @Override
     public void insertdata(String jwtToken, User userData) {
         UserAuthentication userAuthentication = new UserAuthentication();
         userAuthentication.setToken(jwtToken);
         userAuthentication.setUser(userData);
-        userAuthenticateRepo.save(userAuthentication);
+        this.userAuthenticateRepo.save(userAuthentication);
     }
 
-    @Override
     public void update(String jwtToken, Long long1) {
-        userAuthenticateRepo.update(jwtToken, long1);
+        this.userAuthenticateRepo.update(jwtToken, long1);
     }
 }

@@ -8,7 +8,6 @@ public class ApiResponse {
     public Object data;
 
     public ApiResponse() {
-        //super();
         this.status = null;
         this.message = null;
         this.data = null;
@@ -21,13 +20,12 @@ public class ApiResponse {
     }
 
     public ApiResponse(HttpStatus status, String message) {
-        //super();
         this.status = status;
         this.message = message;
     }
 
     public HttpStatus getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setStatus(HttpStatus status) {
@@ -35,7 +33,7 @@ public class ApiResponse {
     }
 
     public String getMessage() {
-        return message;
+        return this.message;
     }
 
     public void setMessage(String message) {
@@ -43,7 +41,7 @@ public class ApiResponse {
     }
 
     public Object getData() {
-        return data;
+        return this.data;
     }
 
     public void setData(Object data) {

@@ -7,16 +7,15 @@ public class RecentTransactionDto {
     private String status;
 
     public String getRrn() {
-        return rrn;
+        return this.rrn;
     }
 
     public void setRrn(String rrn) {
         this.rrn = rrn;
     }
 
-
     public String getAmount() {
-        return amount;
+        return this.amount;
     }
 
     public void setAmount(String amount) {
@@ -24,7 +23,7 @@ public class RecentTransactionDto {
     }
 
     public String getTransactionTime() {
-        return transactionTime;
+        return this.transactionTime;
     }
 
     public void setTransactionTime(String transactionTime) {
@@ -32,7 +31,7 @@ public class RecentTransactionDto {
     }
 
     public String getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setStatus(String status) {

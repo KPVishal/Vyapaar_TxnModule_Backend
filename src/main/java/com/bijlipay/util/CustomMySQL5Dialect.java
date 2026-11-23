@@ -6,8 +6,6 @@ import org.hibernate.type.DateType;
 
 public class CustomMySQL5Dialect extends MySQL5Dialect {
     public CustomMySQL5Dialect() {
-        super();
-        registerFunction("sub_date", new SQLFunctionTemplate(DateType.INSTANCE, "SUBDATE(?1, INTERVAL ?2 ?3)"));
+        this.registerFunction("sub_date", new SQLFunctionTemplate(DateType.INSTANCE, "SUBDATE(?1, INTERVAL ?2 ?3)"));
     }
 }
-

@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TransactionReportDto {
-
     private String txnDate;
     private String mid;
     private String payeeVpaOrTid;
@@ -13,7 +12,7 @@ public class TransactionReportDto {
     private String txnAmount;
 
     public String getTxnDate() {
-        return txnDate;
+        return this.txnDate;
     }
 
     public void setTxnDate(String txnDate) {
@@ -21,7 +20,7 @@ public class TransactionReportDto {
     }
 
     public String getMid() {
-        return mid;
+        return this.mid;
     }
 
     public void setMid(String mid) {
@@ -29,7 +28,7 @@ public class TransactionReportDto {
     }
 
     public String getPayeeVpaOrTid() {
-        return payeeVpaOrTid;
+        return this.payeeVpaOrTid;
     }
 
     public void setPayeeVpaOrTid(String payeeVpaOrTid) {
@@ -37,7 +36,7 @@ public class TransactionReportDto {
     }
 
     public String getResponseCodeOrTxnType() {
-        return responseCodeOrTxnType;
+        return this.responseCodeOrTxnType;
     }
 
     public void setResponseCodeOrTxnType(String responseCodeOrTxnType) {
@@ -45,7 +44,7 @@ public class TransactionReportDto {
     }
 
     public String getBankRrn() {
-        return bankRrn;
+        return this.bankRrn;
     }
 
     public void setBankRrn(String bankRrn) {
@@ -53,7 +52,7 @@ public class TransactionReportDto {
     }
 
     public String getTxnAmount() {
-        return txnAmount;
+        return this.txnAmount;
     }
 
     public void setTxnAmount(String txnAmount) {
@@ -61,6 +60,6 @@ public class TransactionReportDto {
     }
 
     public List<String> getAsList() {
-        return Arrays.asList(txnDate, mid, payeeVpaOrTid, responseCodeOrTxnType, bankRrn, txnAmount);
+        return Arrays.asList(this.txnDate, this.mid, this.payeeVpaOrTid, this.responseCodeOrTxnType, this.bankRrn, this.txnAmount);
     }
 }

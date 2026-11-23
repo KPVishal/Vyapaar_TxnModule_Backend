@@ -3,11 +3,10 @@ package com.bijlipay.model.dto;
 public class TidDto {
     private String tid;
     private String mid;
-
     private boolean isQR;
 
     public String getTid() {
-        return tid;
+        return this.tid;
     }
 
     public void setTid(String tid) {
@@ -15,7 +14,7 @@ public class TidDto {
     }
 
     public String getMid() {
-        return mid;
+        return this.mid;
     }
 
     public void setMid(String mid) {
@@ -23,11 +22,11 @@ public class TidDto {
     }
 
     public boolean isQR() {
-        return isQR;
+        return this.isQR;
     }
 
     public void setQR(boolean QR) {
-        isQR = QR;
+        this.isQR = QR;
     }
 
     public TidDto(String tid, String mid, boolean isQR) {

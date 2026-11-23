@@ -1,25 +1,49 @@
 package com.bijlipay.model;
 
+import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
-import java.util.Date;
-
 @Entity
-@Table(name = "user_authentication")
+@Table(
+        name = "user_authentication"
+)
 public class UserAuthentication {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
+    @Column(
+            name = "id"
+    )
     private Long id;
-    @Column(name = "token", nullable = false)
+    @Column(
+            name = "token",
+            nullable = false
+    )
     private String token;
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    @ManyToOne(optional = false)
+    @JoinColumn(
+            name = "user_id",
+            referencedColumnName = "user_id"
+    )
+    @ManyToOne(
+            optional = false
+    )
     private User user;
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated_at")
+    @Column(
+            name = "updated_at"
+    )
     private Date updatedDate;
 
     public UserAuthentication() {
@@ -31,7 +55,7 @@ public class UserAuthentication {
     }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -39,7 +63,7 @@ public class UserAuthentication {
     }
 
     public String getToken() {
-        return token;
+        return this.token;
     }
 
     public void setToken(String token) {
@@ -47,7 +71,7 @@ public class UserAuthentication {
     }
 
     public User getUser() {
-        return user;
+        return this.user;
     }
 
     public void setUser(User user) {
@@ -55,12 +79,10 @@ public class UserAuthentication {
     }
 
     public Date getUpdatedDate() {
-        return updatedDate;
+        return this.updatedDate;
     }
 
     public void setUpdatedDate(Date updatedDate) {
         this.updatedDate = updatedDate;
     }
 }
-
-

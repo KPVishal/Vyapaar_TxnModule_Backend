@@ -2,11 +2,10 @@ package com.bijlipay.model.dto;
 
 public class VpaDto {
     private String vpa;
-
     private boolean isQR;
 
     public String getVpa() {
-        return vpa;
+        return this.vpa;
     }
 
     public void setVpa(String vpa) {
@@ -14,11 +13,11 @@ public class VpaDto {
     }
 
     public boolean isQR() {
-        return isQR;
+        return this.isQR;
     }
 
     public void setQR(boolean QR) {
-        isQR = QR;
+        this.isQR = QR;
     }
 
     public VpaDto(String vpa, boolean isQR) {

@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SettlementRequestResponseRepository extends JpaRepository<SettlementRequestResponse,Long> {
+public interface SettlementRequestResponseRepository extends JpaRepository<SettlementRequestResponse, Long> {
     @Query("SELECT s FROM SettlementRequestResponse s WHERE s.uniqueId =?1")
     SettlementRequestResponse findByUniqueId(String uniqueId);
 

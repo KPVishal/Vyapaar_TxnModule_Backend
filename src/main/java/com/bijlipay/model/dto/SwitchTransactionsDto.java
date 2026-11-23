@@ -1,7 +1,6 @@
 package com.bijlipay.model.dto;
 
 import java.math.BigInteger;
-import java.util.Date;
 
 public class SwitchTransactionsDto {
     private BigInteger id;
@@ -26,11 +25,8 @@ public class SwitchTransactionsDto {
     private String txnStatus;
     private String txnMode;
 
-    public SwitchTransactionsDto() {
-    }
-
     public BigInteger getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(BigInteger id) {
@@ -38,7 +34,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getMti() {
-        return mti;
+        return this.mti;
     }
 
     public void setMti(String mti) {
@@ -46,7 +42,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getTxnType() {
-        return txnType;
+        return this.txnType;
     }
 
     public void setTxnType(String txnType) {
@@ -54,7 +50,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getTerminalId() {
-        return terminalId;
+        return this.terminalId;
     }
 
     public void setTerminalId(String terminalId) {
@@ -62,7 +58,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getMerchantId() {
-        return merchantId;
+        return this.merchantId;
     }
 
     public void setMerchantId(String merchantId) {
@@ -70,7 +66,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getTxnDate() {
-        return txnDate;
+        return this.txnDate;
     }
 
     public void setTxnDate(String txnDate) {
@@ -78,7 +74,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getTxnTime() {
-        return txnTime;
+        return this.txnTime;
     }
 
     public void setTxnTime(String txnTime) {
@@ -86,7 +82,7 @@ public class SwitchTransactionsDto {
     }
 
     public Double getTxnAmount() {
-        return txnAmount;
+        return this.txnAmount;
     }
 
     public void setTxnAmount(Double txnAmount) {
@@ -94,7 +90,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getTxnResponseCode() {
-        return txnResponseCode;
+        return this.txnResponseCode;
     }
 
     public void setTxnResponseCode(String txnResponseCode) {
@@ -102,7 +98,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getResponseReceivedTime() {
-        return responseReceivedTime;
+        return this.responseReceivedTime;
     }
 
     public void setResponseReceivedTime(String responseReceivedTime) {
@@ -110,7 +106,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getrRNumber() {
-        return rRNumber;
+        return this.rRNumber;
     }
 
     public void setrRNumber(String rRNumber) {
@@ -118,7 +114,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getStan() {
-        return stan;
+        return this.stan;
     }
 
     public void setStan(String stan) {
@@ -126,7 +122,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getInvoiceNumber() {
-        return invoiceNumber;
+        return this.invoiceNumber;
     }
 
     public void setInvoiceNumber(String invoiceNumber) {
@@ -134,7 +130,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getBatchNumber() {
-        return batchNumber;
+        return this.batchNumber;
     }
 
     public void setBatchNumber(String batchNumber) {
@@ -142,15 +138,15 @@ public class SwitchTransactionsDto {
     }
 
     public Double getTxnAdditionalAmount() {
-        return TxnAdditionalAmount;
+        return this.TxnAdditionalAmount;
     }
 
     public void setTxnAdditionalAmount(Double txnAdditionalAmount) {
-        TxnAdditionalAmount = txnAdditionalAmount;
+        this.TxnAdditionalAmount = txnAdditionalAmount;
     }
 
     public String getMaskedCardNumber() {
-        return maskedCardNumber;
+        return this.maskedCardNumber;
     }
 
     public void setMaskedCardNumber(String maskedCardNumber) {
@@ -158,7 +154,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getPanEntryMode() {
-        return panEntryMode;
+        return this.panEntryMode;
     }
 
     public void setPanEntryMode(String panEntryMode) {
@@ -166,7 +162,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getBin() {
-        return bin;
+        return this.bin;
     }
 
     public void setBin(String bin) {
@@ -174,7 +170,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getCustomerVpa() {
-        return customerVpa;
+        return this.customerVpa;
     }
 
     public void setCustomerVpa(String customerVpa) {
@@ -182,7 +178,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getTxnStatus() {
-        return txnStatus;
+        return this.txnStatus;
     }
 
     public void setTxnStatus(String txnStatus) {
@@ -190,7 +186,7 @@ public class SwitchTransactionsDto {
     }
 
     public String getTxnMode() {
-        return txnMode;
+        return this.txnMode;
     }
 
     public void setTxnMode(String txnMode) {

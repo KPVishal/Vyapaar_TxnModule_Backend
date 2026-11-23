@@ -3,7 +3,6 @@ package com.bijlipay.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@SuppressWarnings("serial")
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class ResourceNotFoundException extends RuntimeException {
     private final String resourceName;
@@ -24,14 +23,14 @@ public class ResourceNotFoundException extends RuntimeException {
     }
 
     public String getResourceName() {
-        return resourceName;
+        return this.resourceName;
     }
 
     public String getFieldName() {
-        return fieldName;
+        return this.fieldName;
     }
 
     public Object getFieldValue() {
-        return fieldValue;
+        return this.fieldValue;
     }
 }

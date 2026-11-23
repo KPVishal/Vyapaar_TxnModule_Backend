@@ -4,11 +4,10 @@ import com.bijlipay.model.User;
 import com.bijlipay.model.UserTidVpaData;
 import com.bijlipay.model.dto.TidDto;
 import com.bijlipay.model.dto.VpaDto;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-
-import java.util.List;
 
 public interface UserTidVpaDataRepository extends JpaRepository<UserTidVpaData, Long> {
     @Query("select q from UserTidVpaData q where q.vpa =?1")
@@ -17,13 +16,10 @@ public interface UserTidVpaDataRepository extends JpaRepository<UserTidVpaData, 
     @Query("select q from UserTidVpaData q where q.tid =?1")
     UserTidVpaData findByTid(String tid);
 
-    @Query("SELECT new com.bijlipay.model.dto.TidDto(t.tid, t.mid, t.isQR) " +
-            "FROM UserTidVpaData t WHERE t.user.id = ?1 AND t.isQR = false")
+    @Query("SELECT new com.bijlipay.model.dto.TidDto(t.tid, t.mid, t.isQR) FROM UserTidVpaData t WHERE t.user.id = ?1 AND t.isQR = false")
     List<TidDto> findTidByUserId(long userId);
 
-
-    @Query("SELECT new com.bijlipay.model.dto.VpaDto(v.vpa, v.isQR) " +
-            "FROM UserTidVpaData v WHERE v.user.id = ?1 AND v.isQR = true")
+    @Query("SELECT new com.bijlipay.model.dto.VpaDto(v.vpa, v.isQR) FROM UserTidVpaData v WHERE v.user.id = ?1 AND v.isQR = true")
     List<VpaDto> findVpaByUserId(long userId);
 
     @Query("select q.vpa from UserTidVpaData q where q.user =?1 and q.isQR = true")
@@ -35,9 +31,10 @@ public interface UserTidVpaDataRepository extends JpaRepository<UserTidVpaData, 
     List<UserTidVpaData> findByUser(User sessionUserId);
 
     List<UserTidVpaData> findByMid(String mid);
+
     @Query("select q from UserTidVpaData q where q.vpa =?1")
     List<UserTidVpaData> findVpa(String payeeVpa);
-    // FIX: JOIN FETCH eagerly loads User in same query - prevents LazyInitializationException
+
     @Query("SELECT u FROM UserTidVpaData u JOIN FETCH u.user WHERE u.tid = :tid")
     UserTidVpaData findByTidWithUser(@Param("tid") String tid);
 

@@ -1,10 +1,8 @@
 package com.bijlipay.model.dto;
 
-
 import java.util.Date;
 
 public class ChargeSlipDto {
-
     private Long id;
     private String TID;
     private String MID;
@@ -38,7 +36,7 @@ public class ChargeSlipDto {
     private Date createdDate;
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -46,7 +44,7 @@ public class ChargeSlipDto {
     }
 
     public String getTID() {
-        return TID;
+        return this.TID;
     }
 
     public void setTID(String TID) {
@@ -54,7 +52,7 @@ public class ChargeSlipDto {
     }
 
     public String getMID() {
-        return MID;
+        return this.MID;
     }
 
     public void setMID(String MID) {
@@ -62,7 +60,7 @@ public class ChargeSlipDto {
     }
 
     public String getTXN_TYPE() {
-        return TXN_TYPE;
+        return this.TXN_TYPE;
     }
 
     public void setTXN_TYPE(String TXN_TYPE) {
@@ -70,7 +68,7 @@ public class ChargeSlipDto {
     }
 
     public String getTXN_DATE() {
-        return TXN_DATE;
+        return this.TXN_DATE;
     }
 
     public void setTXN_DATE(String TXN_DATE) {
@@ -78,7 +76,7 @@ public class ChargeSlipDto {
     }
 
     public String getTXN_TIME() {
-        return TXN_TIME;
+        return this.TXN_TIME;
     }
 
     public void setTXN_TIME(String TXN_TIME) {
@@ -86,7 +84,7 @@ public class ChargeSlipDto {
     }
 
     public String getBATCH_NUMBER() {
-        return BATCH_NUMBER;
+        return this.BATCH_NUMBER;
     }
 
     public void setBATCH_NUMBER(String BATCH_NUMBER) {
@@ -94,7 +92,7 @@ public class ChargeSlipDto {
     }
 
     public String getINVOICE_NUMBER() {
-        return INVOICE_NUMBER;
+        return this.INVOICE_NUMBER;
     }
 
     public void setINVOICE_NUMBER(String INVOICE_NUMBER) {
@@ -102,7 +100,7 @@ public class ChargeSlipDto {
     }
 
     public String getCARD_MASKED() {
-        return CARD_MASKED;
+        return this.CARD_MASKED;
     }
 
     public void setCARD_MASKED(String CARD_MASKED) {
@@ -110,7 +108,7 @@ public class ChargeSlipDto {
     }
 
     public String getTXN_AMOUNT_SALE() {
-        return TXN_AMOUNT_SALE;
+        return this.TXN_AMOUNT_SALE;
     }
 
     public void setTXN_AMOUNT_SALE(String TXN_AMOUNT_SALE) {
@@ -118,7 +116,7 @@ public class ChargeSlipDto {
     }
 
     public String getTXN_AMOUNT_TIP() {
-        return TXN_AMOUNT_TIP;
+        return this.TXN_AMOUNT_TIP;
     }
 
     public void setTXN_AMOUNT_TIP(String TXN_AMOUNT_TIP) {
@@ -126,7 +124,7 @@ public class ChargeSlipDto {
     }
 
     public String getTXN_AMOUNT_TOTAL() {
-        return TXN_AMOUNT_TOTAL;
+        return this.TXN_AMOUNT_TOTAL;
     }
 
     public void setTXN_AMOUNT_TOTAL(String TXN_AMOUNT_TOTAL) {
@@ -134,7 +132,7 @@ public class ChargeSlipDto {
     }
 
     public String getTVR() {
-        return TVR;
+        return this.TVR;
     }
 
     public void setTVR(String TVR) {
@@ -142,7 +140,7 @@ public class ChargeSlipDto {
     }
 
     public String getTSI() {
-        return TSI;
+        return this.TSI;
     }
 
     public void setTSI(String TSI) {
@@ -150,7 +148,7 @@ public class ChargeSlipDto {
     }
 
     public String getTXN_CERTIFICATE() {
-        return TXN_CERTIFICATE;
+        return this.TXN_CERTIFICATE;
     }
 
     public void setTXN_CERTIFICATE(String TXN_CERTIFICATE) {
@@ -158,7 +156,7 @@ public class ChargeSlipDto {
     }
 
     public String getBANK_LOGO_ID() {
-        return BANK_LOGO_ID;
+        return this.BANK_LOGO_ID;
     }
 
     public void setBANK_LOGO_ID(String BANK_LOGO_ID) {
@@ -166,7 +164,7 @@ public class ChargeSlipDto {
     }
 
     public String getRRN() {
-        return RRN;
+        return this.RRN;
     }
 
     public void setRRN(String RRN) {
@@ -174,7 +172,7 @@ public class ChargeSlipDto {
     }
 
     public String getMODE() {
-        return MODE;
+        return this.MODE;
     }
 
     public void setMODE(String MODE) {
@@ -182,7 +180,7 @@ public class ChargeSlipDto {
     }
 
     public String getCARD_HOLDER_NAME() {
-        return CARD_HOLDER_NAME;
+        return this.CARD_HOLDER_NAME;
     }
 
     public void setCARD_HOLDER_NAME(String CARD_HOLDER_NAME) {
@@ -190,7 +188,7 @@ public class ChargeSlipDto {
     }
 
     public String getAPPLICATION_ID() {
-        return APPLICATION_ID;
+        return this.APPLICATION_ID;
     }
 
     public void setAPPLICATION_ID(String APPLICATION_ID) {
@@ -198,7 +196,7 @@ public class ChargeSlipDto {
     }
 
     public String getAPPLICATION_NAME() {
-        return APPLICATION_NAME;
+        return this.APPLICATION_NAME;
     }
 
     public void setAPPLICATION_NAME(String APPLICATION_NAME) {
@@ -206,7 +204,7 @@ public class ChargeSlipDto {
     }
 
     public String getAPPLICATION_VERSION() {
-        return APPLICATION_VERSION;
+        return this.APPLICATION_VERSION;
     }
 
     public void setAPPLICATION_VERSION(String APPLICATION_VERSION) {
@@ -214,7 +212,7 @@ public class ChargeSlipDto {
     }
 
     public String getAUTH_CODE() {
-        return AUTH_CODE;
+        return this.AUTH_CODE;
     }
 
     public void setAUTH_CODE(String AUTH_CODE) {
@@ -222,7 +220,7 @@ public class ChargeSlipDto {
     }
 
     public String getPIN_VERIFICATION() {
-        return PIN_VERIFICATION;
+        return this.PIN_VERIFICATION;
     }
 
     public void setPIN_VERIFICATION(String PIN_VERIFICATION) {
@@ -230,7 +228,7 @@ public class ChargeSlipDto {
     }
 
     public String getCARD_TYPE() {
-        return CARD_TYPE;
+        return this.CARD_TYPE;
     }
 
     public void setCARD_TYPE(String CARD_TYPE) {
@@ -238,7 +236,7 @@ public class ChargeSlipDto {
     }
 
     public String getRECEIPT_HEADER1() {
-        return RECEIPT_HEADER1;
+        return this.RECEIPT_HEADER1;
     }
 
     public void setRECEIPT_HEADER1(String RECEIPT_HEADER1) {
@@ -246,7 +244,7 @@ public class ChargeSlipDto {
     }
 
     public String getMERCHANT_NAME() {
-        return MERCHANT_NAME;
+        return this.MERCHANT_NAME;
     }
 
     public void setMERCHANT_NAME(String MERCHANT_NAME) {
@@ -254,7 +252,7 @@ public class ChargeSlipDto {
     }
 
     public String getLOCATION() {
-        return LOCATION;
+        return this.LOCATION;
     }
 
     public void setLOCATION(String LOCATION) {
@@ -262,7 +260,7 @@ public class ChargeSlipDto {
     }
 
     public String getMOBILE_NUMBER() {
-        return MOBILE_NUMBER;
+        return this.MOBILE_NUMBER;
     }
 
     public void setMOBILE_NUMBER(String MOBILE_NUMBER) {
@@ -270,7 +268,7 @@ public class ChargeSlipDto {
     }
 
     public String getRECEIPT_FOOTER1() {
-        return RECEIPT_FOOTER1;
+        return this.RECEIPT_FOOTER1;
     }
 
     public void setRECEIPT_FOOTER1(String RECEIPT_FOOTER1) {
@@ -278,7 +276,7 @@ public class ChargeSlipDto {
     }
 
     public Date getCreatedDate() {
-        return createdDate;
+        return this.createdDate;
     }
 
     public void setCreatedDate(Date createdDate) {

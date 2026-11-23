@@ -14,11 +14,11 @@ public class NotificationResponseDto extends Notification {
         this.notificationRedirectTo = other.getNotificationRedirectTo();
         this.notificationSeen = other.isNotificationSeen();
         this.notificationDate = other.getNotificationDate();
-        setNotificationData(other.getData());
+        this.setNotificationData(other.getData());
     }
 
     public NotificationBodyDto getNotificationData() {
-        return notificationData;
+        return this.notificationData;
     }
 
     public void setNotificationData(NotificationBodyDto notificationData) {
@@ -26,8 +26,9 @@ public class NotificationResponseDto extends Notification {
     }
 
     public void setNotificationData(String data) {
-        if (data != null)
-            this.notificationData = new Gson().fromJson(new JsonParser().parse(data), NotificationBodyDto.class);
+        if (data != null) {
+            this.notificationData = (NotificationBodyDto)(new Gson()).fromJson((new JsonParser()).parse(data), NotificationBodyDto.class);
+        }
+
     }
 }
-

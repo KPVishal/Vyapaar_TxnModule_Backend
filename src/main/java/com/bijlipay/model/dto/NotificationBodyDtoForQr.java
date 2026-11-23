@@ -8,7 +8,7 @@ public class NotificationBodyDtoForQr {
     private Long notificationId;
 
     public String getRedirectTo() {
-        return redirectTo;
+        return this.redirectTo;
     }
 
     public void setRedirectTo(String redirectTo) {
@@ -16,7 +16,7 @@ public class NotificationBodyDtoForQr {
     }
 
     public String getVpa() {
-        return vpa;
+        return this.vpa;
     }
 
     public void setVpa(String vpa) {
@@ -24,7 +24,7 @@ public class NotificationBodyDtoForQr {
     }
 
     public Long getVpaId() {
-        return vpaId;
+        return this.vpaId;
     }
 
     public void setVpaId(Long vpaId) {
@@ -32,7 +32,7 @@ public class NotificationBodyDtoForQr {
     }
 
     public String getMessage() {
-        return message;
+        return this.message;
     }
 
     public void setMessage(String message) {
@@ -40,7 +40,7 @@ public class NotificationBodyDtoForQr {
     }
 
     public Long getNotificationId() {
-        return notificationId;
+        return this.notificationId;
     }
 
     public void setNotificationId(Long notificationId) {

@@ -9,7 +9,7 @@ public class MailFormat {
     private String sheetName;
 
     public ForgotPasswordEmail getForgotPasswordEmail() {
-        return forgotPasswordEmail;
+        return this.forgotPasswordEmail;
     }
 
     public void setForgotPasswordEmail(ForgotPasswordEmail forgotPasswordEmail) {
@@ -17,7 +17,7 @@ public class MailFormat {
     }
 
     public List<List<Object>> getListList() {
-        return listList;
+        return this.listList;
     }
 
     public void setListList(List<List<Object>> listList) {
@@ -25,7 +25,7 @@ public class MailFormat {
     }
 
     public String[] getColumnName() {
-        return columnName;
+        return this.columnName;
     }
 
     public void setColumnName(String[] columnName) {
@@ -33,7 +33,7 @@ public class MailFormat {
     }
 
     public String getSheetName() {
-        return sheetName;
+        return this.sheetName;
     }
 
     public void setSheetName(String sheetName) {

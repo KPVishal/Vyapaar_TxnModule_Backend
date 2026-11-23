@@ -15,7 +15,7 @@ public class UserRequest {
     private String tid;
 
     public String getIfscCode() {
-        return ifscCode;
+        return this.ifscCode;
     }
 
     public void setIfscCode(String ifscCode) {
@@ -23,7 +23,7 @@ public class UserRequest {
     }
 
     public String getAccountNo() {
-        return accountNo;
+        return this.accountNo;
     }
 
     public void setAccountNo(String accountNo) {
@@ -31,7 +31,7 @@ public class UserRequest {
     }
 
     public String getVpa() {
-        return vpa;
+        return this.vpa;
     }
 
     public void setVpa(String vpa) {
@@ -39,7 +39,7 @@ public class UserRequest {
     }
 
     public String getBankName() {
-        return bankName;
+        return this.bankName;
     }
 
     public void setBankName(String bankName) {
@@ -47,7 +47,7 @@ public class UserRequest {
     }
 
     public String getMerchantName() {
-        return merchantName;
+        return this.merchantName;
     }
 
     public void setMerchantName(String merchantName) {
@@ -55,7 +55,7 @@ public class UserRequest {
     }
 
     public String getEmailId() {
-        return emailId;
+        return this.emailId;
     }
 
     public void setEmailId(String emailId) {
@@ -63,7 +63,7 @@ public class UserRequest {
     }
 
     public String getBranch() {
-        return branch;
+        return this.branch;
     }
 
     public void setBranch(String branch) {
@@ -71,7 +71,7 @@ public class UserRequest {
     }
 
     public String getMerchantAddress() {
-        return merchantAddress;
+        return this.merchantAddress;
     }
 
     public void setMerchantAddress(String merchantAddress) {
@@ -79,7 +79,7 @@ public class UserRequest {
     }
 
     public String getMobileNo() {
-        return mobileNo;
+        return this.mobileNo;
     }
 
     public void setMobileNo(String mobileNo) {
@@ -87,7 +87,7 @@ public class UserRequest {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
@@ -95,7 +95,7 @@ public class UserRequest {
     }
 
     public long getLead_id() {
-        return lead_id;
+        return this.lead_id;
     }
 
     public void setLead_id(long lead_id) {
@@ -103,15 +103,14 @@ public class UserRequest {
     }
 
     public String getTid() {
-        return tid;
+        return this.tid;
     }
 
     public void setTid(String tid) {
         this.tid = tid;
     }
 
-    @Override
     public String toString() {
-        return "UserRequest{" + "mobileNo='" + mobileNo + '\'' + ", password='" + password + '\'' + ", ifscCode='" + ifscCode + '\'' + ", accountNo='" + accountNo + '\'' + ", vpa='" + vpa + '\'' + ", bankName='" + bankName + '\'' + ", merchantName='" + merchantName + '\'' + ", emailId='" + emailId + '\'' + ", branch='" + branch + '\'' + ", merchantAddress='" + merchantAddress + '\'' + ", lead_id=" + lead_id + ", tid='" + tid + '\'' + '}';
+        return "UserRequest{mobileNo='" + this.mobileNo + "', password='" + this.password + "', ifscCode='" + this.ifscCode + "', accountNo='" + this.accountNo + "', vpa='" + this.vpa + "', bankName='" + this.bankName + "', merchantName='" + this.merchantName + "', emailId='" + this.emailId + "', branch='" + this.branch + "', merchantAddress='" + this.merchantAddress + "', lead_id=" + this.lead_id + ", tid='" + this.tid + "'}";
     }
 }

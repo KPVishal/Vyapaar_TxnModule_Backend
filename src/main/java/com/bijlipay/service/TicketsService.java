@@ -3,15 +3,14 @@ package com.bijlipay.service;
 import com.bijlipay.model.dto.TicketStatusDto;
 import com.bijlipay.model.tickets.IssuesList;
 import com.bijlipay.model.tickets.Tickets;
-import org.json.JSONException;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import org.json.JSONException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface TicketsService {
     List<Tickets> getByMid(String mid);

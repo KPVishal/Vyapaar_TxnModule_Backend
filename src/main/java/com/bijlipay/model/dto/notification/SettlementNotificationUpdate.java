@@ -4,12 +4,11 @@ import java.util.Arrays;
 
 public class SettlementNotificationUpdate {
     private String title;
-    //    private String body;
     private String[] mid;
     private String category;
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -17,7 +16,7 @@ public class SettlementNotificationUpdate {
     }
 
     public String[] getMid() {
-        return mid;
+        return this.mid;
     }
 
     public void setMid(String[] mid) {
@@ -25,15 +24,15 @@ public class SettlementNotificationUpdate {
     }
 
     public String getCategory() {
-        return category;
+        return this.category;
     }
 
     public void setCategory(String category) {
         this.category = category;
     }
 
-    @Override
     public String toString() {
-        return "SettlementNotificationDto{" + "title='" + title + '\'' + ", mid=" + Arrays.toString(mid) + ", category='" + category + '\'' + '}';
+        String var10000 = this.title;
+        return "SettlementNotificationDto{title='" + var10000 + "', mid=" + Arrays.toString(this.mid) + ", category='" + this.category + "'}";
     }
 }

@@ -1,19 +1,16 @@
 package com.bijlipay.model.dto;
 
-
 public class SettlementNotificationDto {
     private String title;
     private String mid;
     private String tid;
     private String settlementFileUrl;
     private String category;
-
     private String vpa;
-
     private String uniqueId;
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -21,7 +18,7 @@ public class SettlementNotificationDto {
     }
 
     public String getCategory() {
-        return category;
+        return this.category;
     }
 
     public void setCategory(String category) {
@@ -33,7 +30,7 @@ public class SettlementNotificationDto {
     }
 
     public String getTid() {
-        return tid;
+        return this.tid;
     }
 
     public void setTid(String tid) {
@@ -41,11 +38,11 @@ public class SettlementNotificationDto {
     }
 
     public String getMid() {
-        return mid;
+        return this.mid;
     }
 
     public String getSettlementFileUrl() {
-        return settlementFileUrl;
+        return this.settlementFileUrl;
     }
 
     public void setSettlementFileUrl(String settlementFileUrl) {
@@ -53,7 +50,7 @@ public class SettlementNotificationDto {
     }
 
     public String getVpa() {
-        return vpa;
+        return this.vpa;
     }
 
     public void setVpa(String vpa) {
@@ -61,23 +58,14 @@ public class SettlementNotificationDto {
     }
 
     public String getUniqueId() {
-        return uniqueId;
+        return this.uniqueId;
     }
 
     public void setUniqueId(String uniqueId) {
         this.uniqueId = uniqueId;
     }
 
-    @Override
     public String toString() {
-        return "SettlementNotificationDto{" +
-                "title='" + title + '\'' +
-                ", mid='" + mid + '\'' +
-                ", tid='" + tid + '\'' +
-                ", settlementFileUrl='" + settlementFileUrl + '\'' +
-                ", category='" + category + '\'' +
-                ", vpa='" + vpa + '\'' +
-                ", uniqueId='" + uniqueId + '\'' +
-                '}';
+        return "SettlementNotificationDto{title='" + this.title + "', mid='" + this.mid + "', tid='" + this.tid + "', settlementFileUrl='" + this.settlementFileUrl + "', category='" + this.category + "', vpa='" + this.vpa + "', uniqueId='" + this.uniqueId + "'}";
     }
 }

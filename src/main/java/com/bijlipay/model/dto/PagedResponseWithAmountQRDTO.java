@@ -3,10 +3,8 @@ package com.bijlipay.model.dto;
 import org.springframework.data.domain.Page;
 
 public class PagedResponseWithAmountQRDTO {
-
     private Page<AxisQrTransactionDto> page;
     private double amount;
-
 
     public PagedResponseWithAmountQRDTO(Page<AxisQrTransactionDto> page, double amount) {
         this.page = page;
@@ -14,7 +12,7 @@ public class PagedResponseWithAmountQRDTO {
     }
 
     public Page<AxisQrTransactionDto> getPage() {
-        return page;
+        return this.page;
     }
 
     public void setPage(Page<AxisQrTransactionDto> page) {
@@ -22,10 +20,11 @@ public class PagedResponseWithAmountQRDTO {
     }
 
     public double getAmount() {
-        return amount;
+        return this.amount;
     }
 
     public void setAmount(double amount) {
         this.amount = amount;
     }
 }
+

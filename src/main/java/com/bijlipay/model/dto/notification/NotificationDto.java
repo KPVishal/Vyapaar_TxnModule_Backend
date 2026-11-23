@@ -12,7 +12,7 @@ public class NotificationDto {
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -20,15 +20,14 @@ public class NotificationDto {
     }
 
     public String getBody() {
-        return body;
+        return this.body;
     }
 
     public void setBody(String body) {
         this.body = body;
     }
 
-    @Override
     public String toString() {
-        return "NotificationDto{" + "title='" + title + '\'' + ", body='" + body + '\'' + ", categoryId=" + categoryId + ", tid='" + tid + '\'' + '}';
+        return "NotificationDto{title='" + this.title + "', body='" + this.body + "', categoryId=" + this.categoryId + ", tid='" + this.tid + "'}";
     }
 }

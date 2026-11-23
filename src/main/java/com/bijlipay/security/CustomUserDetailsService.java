@@ -15,25 +15,19 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
 
-    @Override
     @Transactional("primaryTransactionManager")
-//    @Transactional
     public UserDetails loadUserByUsername(String mobNo) throws UsernameNotFoundException {
-        // Let people login with either username or email
-        User user = userRepository.findBymobileNo(mobNo);
+        User user = this.userRepository.findBymobileNo(mobNo);
         if (user == null) {
             new UsernameNotFoundException("User not found with mobile Number  : " + mobNo);
         }
-//        .orElseThrow(() -> new UsernameNotFoundException("User not found with mobile Number  : " + mobNo));
-//        UserRoleMapping userRoleMapping =  userRoleMappingService.findByuser(user);
+
         return UserPrincipal.create(user);
     }
 
-    //    @Transactional
     @Transactional("primaryTransactionManager")
     public UserDetails loadUserById(long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User", "id", id));
-//        UserRoleMapping userRoleMapping =  userRoleMappingService.findByuser(user);
+        User user = (User)this.userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User", "id", id));
         return UserPrincipal.create(user);
     }
 }

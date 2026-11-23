@@ -6,14 +6,13 @@ public class PagedResponseWithAmountDTO {
     private Page<SwitchTransactionsDto> page;
     private double amount;
 
-
     public PagedResponseWithAmountDTO(Page<SwitchTransactionsDto> page, double amount) {
         this.page = page;
         this.amount = amount;
     }
 
     public Page<SwitchTransactionsDto> getPage() {
-        return page;
+        return this.page;
     }
 
     public void setPage(Page<SwitchTransactionsDto> page) {
@@ -21,7 +20,7 @@ public class PagedResponseWithAmountDTO {
     }
 
     public double getAmount() {
-        return amount;
+        return this.amount;
     }
 
     public void setAmount(double amount) {

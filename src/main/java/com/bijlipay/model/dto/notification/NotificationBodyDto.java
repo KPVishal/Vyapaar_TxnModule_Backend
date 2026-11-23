@@ -8,11 +8,10 @@ public class NotificationBodyDto {
     private String message;
     private Long notificationId;
     private String vpa;
-
     private String settlementUrl;
 
     public Integer getCategoryType() {
-        return categoryType;
+        return this.categoryType;
     }
 
     public void setCategoryType(Integer categoryType) {
@@ -20,7 +19,7 @@ public class NotificationBodyDto {
     }
 
     public Long getCategoryId() {
-        return categoryId;
+        return this.categoryId;
     }
 
     public void setCategoryId(Long categoryId) {
@@ -28,7 +27,7 @@ public class NotificationBodyDto {
     }
 
     public String getRedirectTo() {
-        return redirectTo;
+        return this.redirectTo;
     }
 
     public void setRedirectTo(String redirectTo) {
@@ -36,7 +35,7 @@ public class NotificationBodyDto {
     }
 
     public String getTid() {
-        return tid;
+        return this.tid;
     }
 
     public void setTid(String tid) {
@@ -44,7 +43,7 @@ public class NotificationBodyDto {
     }
 
     public String getMessage() {
-        return message;
+        return this.message;
     }
 
     public void setMessage(String message) {
@@ -52,7 +51,7 @@ public class NotificationBodyDto {
     }
 
     public Long getNotificationId() {
-        return notificationId;
+        return this.notificationId;
     }
 
     public void setNotificationId(Long notificationId) {
@@ -60,7 +59,7 @@ public class NotificationBodyDto {
     }
 
     public String getVpa() {
-        return vpa;
+        return this.vpa;
     }
 
     public void setVpa(String vpa) {
@@ -68,24 +67,14 @@ public class NotificationBodyDto {
     }
 
     public String getSettlementUrl() {
-        return settlementUrl;
+        return this.settlementUrl;
     }
 
     public void setSettlementUrl(String settlementUrl) {
         this.settlementUrl = settlementUrl;
     }
 
-    @Override
     public String toString() {
-        return "NotificationBodyDto{" +
-                "redirectTo='" + redirectTo + '\'' +
-                ", tid='" + tid + '\'' +
-                ", categoryId=" + categoryId +
-                ", categoryType=" + categoryType +
-                ", message='" + message + '\'' +
-                ", notificationId=" + notificationId +
-                ", vpa='" + vpa + '\'' +
-                ", settlementUrl='" + settlementUrl + '\'' +
-                '}';
+        return "NotificationBodyDto{redirectTo='" + this.redirectTo + "', tid='" + this.tid + "', categoryId=" + this.categoryId + ", categoryType=" + this.categoryType + ", message='" + this.message + "', notificationId=" + this.notificationId + ", vpa='" + this.vpa + "', settlementUrl='" + this.settlementUrl + "'}";
     }
 }

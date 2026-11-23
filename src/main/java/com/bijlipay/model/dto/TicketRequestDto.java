@@ -9,7 +9,7 @@ public class TicketRequestDto {
     private EmailConversationDto email_conversation;
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -17,7 +17,7 @@ public class TicketRequestDto {
     }
 
     public String getTicket_details() {
-        return ticket_details;
+        return this.ticket_details;
     }
 
     public void setTicket_details(String ticket_details) {
@@ -25,7 +25,7 @@ public class TicketRequestDto {
     }
 
     public String getEmail_id() {
-        return email_id;
+        return this.email_id;
     }
 
     public void setEmail_id(String email_id) {
@@ -33,7 +33,7 @@ public class TicketRequestDto {
     }
 
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
 
     public void setPhone(String phone) {
@@ -41,7 +41,7 @@ public class TicketRequestDto {
     }
 
     public String getIgnore_add_customer() {
-        return ignore_add_customer;
+        return this.ignore_add_customer;
     }
 
     public void setIgnore_add_customer(String ignore_add_customer) {
@@ -49,15 +49,15 @@ public class TicketRequestDto {
     }
 
     public EmailConversationDto getEmail_conversation() {
-        return email_conversation;
+        return this.email_conversation;
     }
 
     public void setEmail_conversation(EmailConversationDto email_conversation) {
         this.email_conversation = email_conversation;
     }
 
-    @Override
     public String toString() {
-        return "{" + "title='" + title + '\'' + ", ticket_details='" + ticket_details + '\'' + ", email_id='" + email_id + '\'' + ", phone='" + phone + '\'' + ", ignore_add_customer='" + ignore_add_customer + '\'' + ", email_conversation=" + email_conversation + '}';
+        String var10000 = this.title;
+        return "{title='" + var10000 + "', ticket_details='" + this.ticket_details + "', email_id='" + this.email_id + "', phone='" + this.phone + "', ignore_add_customer='" + this.ignore_add_customer + "', email_conversation=" + String.valueOf(this.email_conversation) + "}";
     }
 }

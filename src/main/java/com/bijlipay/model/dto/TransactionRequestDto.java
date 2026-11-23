@@ -8,7 +8,7 @@ public class TransactionRequestDto {
     int dateRange;
 
     public int getTxnStatus() {
-        return txnStatus;
+        return this.txnStatus;
     }
 
     public void setTxnStatus(int txnStatus) {
@@ -16,7 +16,7 @@ public class TransactionRequestDto {
     }
 
     public List<String> getTxnType() {
-        return txnType;
+        return this.txnType;
     }
 
     public void setTxnType(List<String> txnType) {
@@ -24,7 +24,7 @@ public class TransactionRequestDto {
     }
 
     public int getDateRange() {
-        return dateRange;
+        return this.dateRange;
     }
 
     public void setDateRange(int dateRange) {

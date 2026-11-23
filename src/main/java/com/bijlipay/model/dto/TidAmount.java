@@ -1,13 +1,11 @@
 package com.bijlipay.model.dto;
 
 public class TidAmount {
-    private String  amount;
-
+    private String amount;
     private boolean flag;
 
-
     public String getAmount() {
-        return amount;
+        return this.amount;
     }
 
     public void setAmount(String amount) {
@@ -15,7 +13,7 @@ public class TidAmount {
     }
 
     public boolean isFlag() {
-        return flag;
+        return this.flag;
     }
 
     public void setFlag(boolean flag) {

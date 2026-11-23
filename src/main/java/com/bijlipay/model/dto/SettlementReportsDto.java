@@ -3,15 +3,13 @@ package com.bijlipay.model.dto;
 public class SettlementReportsDto {
     private String merchantId;
     private String fromDate;
-    private String toDate; //dd-MM-yyyy
-
+    private String toDate;
     private String terminalId;
-
     private String uniqueId;
     private String fileType;
 
     public String getMerchantId() {
-        return merchantId;
+        return this.merchantId;
     }
 
     public void setMerchantId(String merchantId) {
@@ -19,7 +17,7 @@ public class SettlementReportsDto {
     }
 
     public String getFromDate() {
-        return fromDate;
+        return this.fromDate;
     }
 
     public void setFromDate(String fromDate) {
@@ -27,7 +25,7 @@ public class SettlementReportsDto {
     }
 
     public String getToDate() {
-        return toDate;
+        return this.toDate;
     }
 
     public void setToDate(String toDate) {
@@ -35,7 +33,7 @@ public class SettlementReportsDto {
     }
 
     public String getTerminalId() {
-        return terminalId;
+        return this.terminalId;
     }
 
     public void setTerminalId(String terminalId) {
@@ -43,7 +41,7 @@ public class SettlementReportsDto {
     }
 
     public String getUniqueId() {
-        return uniqueId;
+        return this.uniqueId;
     }
 
     public void setUniqueId(String uniqueId) {
@@ -51,22 +49,14 @@ public class SettlementReportsDto {
     }
 
     public String getFileType() {
-        return fileType;
+        return this.fileType;
     }
 
     public void setFileType(String fileType) {
         this.fileType = fileType;
     }
 
-    @Override
     public String toString() {
-        return "SettlementReportsDto{" +
-                "merchantId='" + merchantId + '\'' +
-                ", fromDate='" + fromDate + '\'' +
-                ", toDate='" + toDate + '\'' +
-                ", terminalId='" + terminalId + '\'' +
-                ", uniqueId='" + uniqueId + '\'' +
-                ", fileType='" + fileType + '\'' +
-                '}';
+        return "SettlementReportsDto{merchantId='" + this.merchantId + "', fromDate='" + this.fromDate + "', toDate='" + this.toDate + "', terminalId='" + this.terminalId + "', uniqueId='" + this.uniqueId + "', fileType='" + this.fileType + "'}";
     }
 }

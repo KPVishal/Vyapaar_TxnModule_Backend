@@ -1,12 +1,10 @@
 package com.bijlipay.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.Arrays;
 import java.util.List;
 
 public class AxisQrTransactionDto {
-
     private String customerVpa;
     private String creditVpa;
     private String merchantId;
@@ -22,15 +20,12 @@ public class AxisQrTransactionDto {
     private String payeractype;
     private String purposeCode;
     private String initMode;
-
     private String createdAt;
-
     private String txnMode;
-
     private String txnStatus;
 
     public String getCustomerVpa() {
-        return customerVpa;
+        return this.customerVpa;
     }
 
     public void setCustomerVpa(String customerVpa) {
@@ -38,7 +33,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getCreditVpa() {
-        return creditVpa;
+        return this.creditVpa;
     }
 
     public void setCreditVpa(String creditVpa) {
@@ -46,7 +41,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getMerchantId() {
-        return merchantId;
+        return this.merchantId;
     }
 
     public void setMerchantId(String merchantId) {
@@ -54,7 +49,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getMerchantChannelId() {
-        return merchantChannelId;
+        return this.merchantChannelId;
     }
 
     public void setMerchantChannelId(String merchantChannelId) {
@@ -62,7 +57,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getMerchantTransactionId() {
-        return merchantTransactionId;
+        return this.merchantTransactionId;
     }
 
     public void setMerchantTransactionId(String merchantTransactionId) {
@@ -70,7 +65,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getTransactionTimestamp() {
-        return transactionTimestamp;
+        return this.transactionTimestamp;
     }
 
     public void setTransactionTimestamp(String transactionTimestamp) {
@@ -78,7 +73,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getTransactionAmount() {
-        return transactionAmount;
+        return this.transactionAmount;
     }
 
     public void setTransactionAmount(String transactionAmount) {
@@ -86,7 +81,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getGatewayTransactionId() {
-        return gatewayTransactionId;
+        return this.gatewayTransactionId;
     }
 
     public void setGatewayTransactionId(String gatewayTransactionId) {
@@ -94,7 +89,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getGatewayResponseCode() {
-        return gatewayResponseCode;
+        return this.gatewayResponseCode;
     }
 
     public void setGatewayResponseCode(String gatewayResponseCode) {
@@ -102,7 +97,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getGatewayResponseMessage() {
-        return gatewayResponseMessage;
+        return this.gatewayResponseMessage;
     }
 
     public void setGatewayResponseMessage(String gatewayResponseMessage) {
@@ -110,7 +105,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getRrn() {
-        return rrn;
+        return this.rrn;
     }
 
     public void setRrn(String rrn) {
@@ -118,7 +113,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getChecksum() {
-        return checksum;
+        return this.checksum;
     }
 
     public void setChecksum(String checksum) {
@@ -126,7 +121,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getPayeractype() {
-        return payeractype;
+        return this.payeractype;
     }
 
     public void setPayeractype(String payeractype) {
@@ -134,7 +129,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getPurposeCode() {
-        return purposeCode;
+        return this.purposeCode;
     }
 
     public void setPurposeCode(String purposeCode) {
@@ -142,7 +137,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getInitMode() {
-        return initMode;
+        return this.initMode;
     }
 
     public void setInitMode(String initMode) {
@@ -150,7 +145,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getCreatedAt() {
-        return createdAt;
+        return this.createdAt;
     }
 
     public void setCreatedAt(String createdAt) {
@@ -158,7 +153,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getTxnMode() {
-        return txnMode;
+        return this.txnMode;
     }
 
     public void setTxnMode(String txnMode) {
@@ -166,7 +161,7 @@ public class AxisQrTransactionDto {
     }
 
     public String getTxnStatus() {
-        return txnStatus;
+        return this.txnStatus;
     }
 
     public void setTxnStatus(String txnStatus) {
@@ -175,6 +170,6 @@ public class AxisQrTransactionDto {
 
     @JsonIgnore
     public List<String> getAsList() {
-        return Arrays.asList(customerVpa, creditVpa, merchantId, merchantChannelId, merchantTransactionId, transactionTimestamp, transactionAmount, gatewayTransactionId, gatewayResponseCode, gatewayResponseMessage, rrn, checksum, payeractype, purposeCode, initMode);
+        return Arrays.asList(this.customerVpa, this.creditVpa, this.merchantId, this.merchantChannelId, this.merchantTransactionId, this.transactionTimestamp, this.transactionAmount, this.gatewayTransactionId, this.gatewayResponseCode, this.gatewayResponseMessage, this.rrn, this.checksum, this.payeractype, this.purposeCode, this.initMode);
     }
 }

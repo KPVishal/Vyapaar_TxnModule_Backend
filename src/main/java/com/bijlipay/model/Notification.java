@@ -1,37 +1,71 @@
 package com.bijlipay.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import org.hibernate.annotations.CreationTimestamp;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name = "notifications")
-//@JsonIgnoreProperties(value = {"data"})
+@Table(
+        name = "notifications"
+)
 public class Notification implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "notification_id")
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
+    @Column(
+            name = "notification_id"
+    )
     protected Long id;
-    @Column(name = "notification_title", nullable = true)
+    @Column(
+            name = "notification_title",
+            nullable = true
+    )
     protected String notificationTitle;
-    @Column(name = "notification_reason", nullable = true)
+    @Column(
+            name = "notification_reason",
+            nullable = true
+    )
     protected String notificationReason;
-    @Column(name = "notification_redirectTo", nullable = true)
+    @Column(
+            name = "notification_redirectTo",
+            nullable = true
+    )
     protected String notificationRedirectTo;
-    @Column(name = "notification_seen")
+    @Column(
+            name = "notification_seen"
+    )
     protected boolean notificationSeen = false;
     @JsonBackReference
-    @ManyToOne(optional = true)
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    @ManyToOne(
+            optional = true
+    )
+    @JoinColumn(
+            name = "user_id",
+            referencedColumnName = "user_id"
+    )
     protected User user;
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "notification_date")
+    @Column(
+            name = "notification_date"
+    )
     protected Date notificationDate;
-    @Column(name = "notification_data", columnDefinition = "TEXT")
+    @Column(
+            name = "notification_data",
+            columnDefinition = "TEXT"
+    )
     protected String data;
 
     public Notification() {
@@ -47,7 +81,7 @@ public class Notification implements Serializable {
     }
 
     public boolean isNotificationSeen() {
-        return notificationSeen;
+        return this.notificationSeen;
     }
 
     public void setNotificationSeen(boolean notificationSeen) {
@@ -55,7 +89,7 @@ public class Notification implements Serializable {
     }
 
     public Date getNotificationDate() {
-        return notificationDate;
+        return this.notificationDate;
     }
 
     public void setNotificationDate(Date notificationDate) {
@@ -63,7 +97,7 @@ public class Notification implements Serializable {
     }
 
     public String getNotificationTitle() {
-        return notificationTitle;
+        return this.notificationTitle;
     }
 
     public void setNotificationTitle(String notificationTitle) {
@@ -71,7 +105,7 @@ public class Notification implements Serializable {
     }
 
     public String getNotificationReason() {
-        return notificationReason;
+        return this.notificationReason;
     }
 
     public void setNotificationReason(String notificationReason) {
@@ -79,7 +113,7 @@ public class Notification implements Serializable {
     }
 
     public String getNotificationRedirectTo() {
-        return notificationRedirectTo;
+        return this.notificationRedirectTo;
     }
 
     public void setNotificationRedirectTo(String notificationRedirectTo) {
@@ -87,7 +121,7 @@ public class Notification implements Serializable {
     }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -95,7 +129,7 @@ public class Notification implements Serializable {
     }
 
     public User getUser() {
-        return user;
+        return this.user;
     }
 
     public void setUser(User user) {
@@ -103,15 +137,15 @@ public class Notification implements Serializable {
     }
 
     public String getData() {
-        return data;
+        return this.data;
     }
 
     public void setData(String notificationData) {
         this.data = notificationData;
     }
 
-    @Override
     public String toString() {
-        return "Notification{" + "id=" + id + ", notificationTitle='" + notificationTitle + '\'' + ", notificationReason='" + notificationReason + '\'' + ", notificationRedirectTo='" + notificationRedirectTo + '\'' + ", notificationSeen=" + notificationSeen + ", user=" + user + ", notificationDate=" + notificationDate + ", data='" + data + '\'' + '}';
+        Long var10000 = this.id;
+        return "Notification{id=" + var10000 + ", notificationTitle='" + this.notificationTitle + "', notificationReason='" + this.notificationReason + "', notificationRedirectTo='" + this.notificationRedirectTo + "', notificationSeen=" + this.notificationSeen + ", user=" + String.valueOf(this.user) + ", notificationDate=" + String.valueOf(this.notificationDate) + ", data='" + this.data + "'}";
     }
 }

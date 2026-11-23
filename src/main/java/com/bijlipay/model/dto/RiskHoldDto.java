@@ -1,8 +1,8 @@
 package com.bijlipay.model.dto;
 
+import java.util.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import java.util.Date;
 
 public class RiskHoldDto {
     private String mid;
@@ -22,7 +22,7 @@ public class RiskHoldDto {
     private String riskHoldId;
 
     public String getMid() {
-        return mid;
+        return this.mid;
     }
 
     public void setMid(String mid) {
@@ -30,7 +30,7 @@ public class RiskHoldDto {
     }
 
     public String getTid() {
-        return tid;
+        return this.tid;
     }
 
     public void setTid(String tid) {
@@ -38,7 +38,7 @@ public class RiskHoldDto {
     }
 
     public String getCardNumber() {
-        return cardNumber;
+        return this.cardNumber;
     }
 
     public void setCardNumber(String cardNumber) {
@@ -46,7 +46,7 @@ public class RiskHoldDto {
     }
 
     public String getCardType() {
-        return cardType;
+        return this.cardType;
     }
 
     public void setCardType(String cardType) {
@@ -54,7 +54,7 @@ public class RiskHoldDto {
     }
 
     public String getTxnType() {
-        return txnType;
+        return this.txnType;
     }
 
     public void setTxnType(String txnType) {
@@ -62,7 +62,7 @@ public class RiskHoldDto {
     }
 
     public String getRrn() {
-        return rrn;
+        return this.rrn;
     }
 
     public void setRrn(String rrn) {
@@ -70,7 +70,7 @@ public class RiskHoldDto {
     }
 
     public Date getTxnDate() {
-        return txnDate;
+        return this.txnDate;
     }
 
     public void setTxnDate(Date txnDate) {
@@ -78,7 +78,7 @@ public class RiskHoldDto {
     }
 
     public String getTxnAmount() {
-        return txnAmount;
+        return this.txnAmount;
     }
 
     public void setTxnAmount(String txnAmount) {
@@ -86,7 +86,7 @@ public class RiskHoldDto {
     }
 
     public Date getHoldDate() {
-        return holdDate;
+        return this.holdDate;
     }
 
     public void setHoldDate(Date holdDate) {
@@ -94,7 +94,7 @@ public class RiskHoldDto {
     }
 
     public String getHoldRemark() {
-        return holdRemark;
+        return this.holdRemark;
     }
 
     public void setHoldRemark(String holdRemark) {
@@ -102,7 +102,7 @@ public class RiskHoldDto {
     }
 
     public String getNetwork() {
-        return network;
+        return this.network;
     }
 
     public void setNetwork(String network) {
@@ -110,7 +110,7 @@ public class RiskHoldDto {
     }
 
     public String getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setStatus(String status) {
@@ -118,15 +118,15 @@ public class RiskHoldDto {
     }
 
     public String getRiskHoldId() {
-        return riskHoldId;
+        return this.riskHoldId;
     }
 
     public void setRiskHoldId(String riskHoldId) {
         this.riskHoldId = riskHoldId;
     }
 
-    @Override
     public String toString() {
-        return "RiskHoldDto{" + "mid='" + mid + '\'' + ", tid='" + tid + '\'' + ", cardNumber='" + cardNumber + '\'' + ", cardType='" + cardType + '\'' + ", txnType='" + txnType + '\'' + ", rrn='" + rrn + '\'' + ", txnDate=" + txnDate + ", txnAmount='" + txnAmount + '\'' + ", holdDate=" + holdDate + ", holdRemark='" + holdRemark + '\'' + ", network='" + network + '\'' + ", status='" + status + '\'' + ", riskHoldId='" + riskHoldId + '\'' + '}';
+        String var10000 = this.mid;
+        return "RiskHoldDto{mid='" + var10000 + "', tid='" + this.tid + "', cardNumber='" + this.cardNumber + "', cardType='" + this.cardType + "', txnType='" + this.txnType + "', rrn='" + this.rrn + "', txnDate=" + String.valueOf(this.txnDate) + ", txnAmount='" + this.txnAmount + "', holdDate=" + String.valueOf(this.holdDate) + ", holdRemark='" + this.holdRemark + "', network='" + this.network + "', status='" + this.status + "', riskHoldId='" + this.riskHoldId + "'}";
     }
 }

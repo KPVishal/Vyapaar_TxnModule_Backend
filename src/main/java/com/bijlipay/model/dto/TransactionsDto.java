@@ -18,7 +18,7 @@ public class TransactionsDto {
     private String txnType;
 
     public String getTxnType() {
-        return txnType;
+        return this.txnType;
     }
 
     public void setTxnType(String txnType) {
@@ -26,7 +26,7 @@ public class TransactionsDto {
     }
 
     public String getMid() {
-        return mid;
+        return this.mid;
     }
 
     public void setMid(String mid) {
@@ -34,7 +34,7 @@ public class TransactionsDto {
     }
 
     public String getTid() {
-        return tid;
+        return this.tid;
     }
 
     public void setTid(String tid) {
@@ -42,7 +42,7 @@ public class TransactionsDto {
     }
 
     public String getCardNo() {
-        return cardNo;
+        return this.cardNo;
     }
 
     public void setCardNo(String cardNo) {
@@ -50,7 +50,7 @@ public class TransactionsDto {
     }
 
     public String getBankName() {
-        return bankName;
+        return this.bankName;
     }
 
     public void setBankName(String bankName) {
@@ -58,7 +58,7 @@ public class TransactionsDto {
     }
 
     public String getCardType() {
-        return cardType;
+        return this.cardType;
     }
 
     public void setCardType(String cardType) {
@@ -66,7 +66,7 @@ public class TransactionsDto {
     }
 
     public String getCity() {
-        return city;
+        return this.city;
     }
 
     public void setCity(String city) {
@@ -74,7 +74,7 @@ public class TransactionsDto {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -82,7 +82,7 @@ public class TransactionsDto {
     }
 
     public String getIfsc() {
-        return ifsc;
+        return this.ifsc;
     }
 
     public void setIfsc(String ifsc) {
@@ -90,7 +90,7 @@ public class TransactionsDto {
     }
 
     public String getMerchantName() {
-        return merchantName;
+        return this.merchantName;
     }
 
     public void setMerchantName(String merchantName) {
@@ -98,7 +98,7 @@ public class TransactionsDto {
     }
 
     public Double getNetAmount() {
-        return netAmount;
+        return this.netAmount;
     }
 
     public void setNetAmount(Double netAmount) {
@@ -106,7 +106,7 @@ public class TransactionsDto {
     }
 
     public String getPaymentDate() {
-        return paymentDate;
+        return this.paymentDate;
     }
 
     public void setPaymentDate(String paymentDate) {
@@ -114,7 +114,7 @@ public class TransactionsDto {
     }
 
     public String getRrn() {
-        return rrn;
+        return this.rrn;
     }
 
     public void setRrn(String rrn) {
@@ -122,7 +122,7 @@ public class TransactionsDto {
     }
 
     public String getTxnDate() {
-        return txnDate;
+        return this.txnDate;
     }
 
     public void setTxnDate(String txnDate) {
@@ -130,15 +130,14 @@ public class TransactionsDto {
     }
 
     public Double getTxnAmount() {
-        return txnAmount;
+        return this.txnAmount;
     }
 
     public void setTxnAmount(Double txnAmount) {
         this.txnAmount = txnAmount;
     }
 
-    @Override
     public String toString() {
-        return "TransactionsDto{" + "mid='" + mid + '\'' + ", tid='" + tid + '\'' + ", cardNo='" + cardNo + '\'' + ", bankName='" + bankName + '\'' + ", cardType='" + cardType + '\'' + ", city='" + city + '\'' + ", email='" + email + '\'' + ", ifsc='" + ifsc + '\'' + ", merchantName='" + merchantName + '\'' + ", netAmount=" + netAmount + ", paymentDate=" + paymentDate + ", rrn='" + rrn + '\'' + ", txnDate=" + txnDate + ", txnAmount=" + txnAmount + '}';
+        return "TransactionsDto{mid='" + this.mid + "', tid='" + this.tid + "', cardNo='" + this.cardNo + "', bankName='" + this.bankName + "', cardType='" + this.cardType + "', city='" + this.city + "', email='" + this.email + "', ifsc='" + this.ifsc + "', merchantName='" + this.merchantName + "', netAmount=" + this.netAmount + ", paymentDate=" + this.paymentDate + ", rrn='" + this.rrn + "', txnDate=" + this.txnDate + ", txnAmount=" + this.txnAmount + "}";
     }
 }

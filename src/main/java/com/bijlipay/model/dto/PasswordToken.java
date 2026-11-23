@@ -6,7 +6,7 @@ public class PasswordToken {
     private boolean used;
 
     public boolean isUsed() {
-        return used;
+        return this.used;
     }
 
     public void setUsed(boolean used) {
@@ -14,7 +14,7 @@ public class PasswordToken {
     }
 
     public long getUserId() {
-        return userId;
+        return this.userId;
     }
 
     public void setUserId(long userId) {
@@ -22,7 +22,7 @@ public class PasswordToken {
     }
 
     public int getOneTimePassword() {
-        return oneTimePassword;
+        return this.oneTimePassword;
     }
 
     public void setOneTimePassword(int oneTimePassword) {

@@ -9,13 +9,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public interface UserAuthenticationRepo extends JpaRepository<UserAuthentication, Integer> {
-
-    @Query(value = "Select * from user_authentication where user_id=?1", nativeQuery = true)
+    @Query(
+            value = "Select * from user_authentication where user_id=?1",
+            nativeQuery = true
+    )
     UserAuthentication getuser(long l);
-
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE user_authentication SET token = ?1 WHERE id=?2", nativeQuery = true)
+    @Query(
+            value = "UPDATE user_authentication SET token = ?1 WHERE id=?2",
+            nativeQuery = true
+    )
     void update(String jwtToken, Long long1);
 }

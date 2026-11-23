@@ -1,64 +1,99 @@
 package com.bijlipay.txndb.model;
 
+import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.*;
-import java.util.Date;
-
 @Entity
-@Table(name = "static_qr_txn")
+@Table(
+        name = "static_qr_txn"
+)
 public class StaticQrTxn {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "txn_id", nullable = false)
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
+    @Column(
+            name = "txn_id",
+            nullable = false
+    )
     private long id;
-    @Column(name = "customer_vpa")
+    @Column(
+            name = "customer_vpa"
+    )
     private String customerVpa;
-    @Column(name = "credit_vpa")
+    @Column(
+            name = "credit_vpa"
+    )
     private String creditVpa;
-    @Column(name = "merchant_id")
+    @Column(
+            name = "merchant_id"
+    )
     private String merchantId;
-
-    @Column(name = "merchant_channel_id")
+    @Column(
+            name = "merchant_channel_id"
+    )
     private String merchantChannelId;
-
-    @Column(name = "merchant_transaction_id")
+    @Column(
+            name = "merchant_transaction_id"
+    )
     private String merchantTransactionId;
-
-    @Column(name = "transaction_timestamp")
+    @Column(
+            name = "transaction_timestamp"
+    )
     private String transactionTimestamp;
-
-    @Column(name = "transaction_amount")
+    @Column(
+            name = "transaction_amount"
+    )
     private float transactionAmount;
-
-    @Column(name = "gateway_transaction_id")
+    @Column(
+            name = "gateway_transaction_id"
+    )
     private String gatewayTransactionId;
-
-    @Column(name = "gateway_response_code")
+    @Column(
+            name = "gateway_response_code"
+    )
     private String gatewayResponseCode;
-    @Column(name = "gateway_response_message")
+    @Column(
+            name = "gateway_response_message"
+    )
     private String gatewayResponseMessage;
-    @Column(name = "rrn")
+    @Column(
+            name = "rrn"
+    )
     private String rrn;
-
-    @Column(name = "checksum")
+    @Column(
+            name = "checksum"
+    )
     private String checksum;
-    @Column(name = "payeractype")
+    @Column(
+            name = "payeractype"
+    )
     private String payeractype;
-    @Column(name = "purpose_code")
+    @Column(
+            name = "purpose_code"
+    )
     private String purposeCode;
-    @Column(name = "init_mode")
+    @Column(
+            name = "init_mode"
+    )
     private String initMode;
-
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_at")
+    @Column(
+            name = "created_at"
+    )
     private Date createdAt;
 
-
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(long id) {
@@ -66,7 +101,7 @@ public class StaticQrTxn {
     }
 
     public String getCustomerVpa() {
-        return customerVpa;
+        return this.customerVpa;
     }
 
     public void setCustomerVpa(String customerVpa) {
@@ -74,7 +109,7 @@ public class StaticQrTxn {
     }
 
     public String getCreditVpa() {
-        return creditVpa;
+        return this.creditVpa;
     }
 
     public void setCreditVpa(String creditVpa) {
@@ -82,7 +117,7 @@ public class StaticQrTxn {
     }
 
     public String getMerchantId() {
-        return merchantId;
+        return this.merchantId;
     }
 
     public void setMerchantId(String merchantId) {
@@ -90,7 +125,7 @@ public class StaticQrTxn {
     }
 
     public String getMerchantChannelId() {
-        return merchantChannelId;
+        return this.merchantChannelId;
     }
 
     public void setMerchantChannelId(String merchantChannelId) {
@@ -98,7 +133,7 @@ public class StaticQrTxn {
     }
 
     public String getMerchantTransactionId() {
-        return merchantTransactionId;
+        return this.merchantTransactionId;
     }
 
     public void setMerchantTransactionId(String merchantTransactionId) {
@@ -106,7 +141,7 @@ public class StaticQrTxn {
     }
 
     public String getTransactionTimestamp() {
-        return transactionTimestamp;
+        return this.transactionTimestamp;
     }
 
     public void setTransactionTimestamp(String transactionTimestamp) {
@@ -114,7 +149,7 @@ public class StaticQrTxn {
     }
 
     public float getTransactionAmount() {
-        return transactionAmount;
+        return this.transactionAmount;
     }
 
     public void setTransactionAmount(float transactionAmount) {
@@ -122,7 +157,7 @@ public class StaticQrTxn {
     }
 
     public String getGatewayTransactionId() {
-        return gatewayTransactionId;
+        return this.gatewayTransactionId;
     }
 
     public void setGatewayTransactionId(String gatewayTransactionId) {
@@ -130,7 +165,7 @@ public class StaticQrTxn {
     }
 
     public String getGatewayResponseCode() {
-        return gatewayResponseCode;
+        return this.gatewayResponseCode;
     }
 
     public void setGatewayResponseCode(String gatewayResponseCode) {
@@ -138,7 +173,7 @@ public class StaticQrTxn {
     }
 
     public String getGatewayResponseMessage() {
-        return gatewayResponseMessage;
+        return this.gatewayResponseMessage;
     }
 
     public void setGatewayResponseMessage(String gatewayResponseMessage) {
@@ -146,7 +181,7 @@ public class StaticQrTxn {
     }
 
     public String getRrn() {
-        return rrn;
+        return this.rrn;
     }
 
     public void setRrn(String rrn) {
@@ -154,7 +189,7 @@ public class StaticQrTxn {
     }
 
     public String getChecksum() {
-        return checksum;
+        return this.checksum;
     }
 
     public void setChecksum(String checksum) {
@@ -162,7 +197,7 @@ public class StaticQrTxn {
     }
 
     public Date getCreatedAt() {
-        return createdAt;
+        return this.createdAt;
     }
 
     public void setCreatedAt(Date createdAt) {
@@ -170,7 +205,7 @@ public class StaticQrTxn {
     }
 
     public String getPayeractype() {
-        return payeractype;
+        return this.payeractype;
     }
 
     public void setPayeractype(String payeractype) {
@@ -178,7 +213,7 @@ public class StaticQrTxn {
     }
 
     public String getPurposeCode() {
-        return purposeCode;
+        return this.purposeCode;
     }
 
     public void setPurposeCode(String purposeCode) {
@@ -186,7 +221,7 @@ public class StaticQrTxn {
     }
 
     public String getInitMode() {
-        return initMode;
+        return this.initMode;
     }
 
     public void setInitMode(String initMode) {

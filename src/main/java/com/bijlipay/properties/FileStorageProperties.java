@@ -2,12 +2,14 @@ package com.bijlipay.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "file")
+@ConfigurationProperties(
+        prefix = "file"
+)
 public class FileStorageProperties {
     private String uploadDir;
 
     public String getUploadDir() {
-        return uploadDir;
+        return this.uploadDir;
     }
 
     public void setUploadDir(String uploadDir) {

@@ -1,61 +1,122 @@
 package com.bijlipay.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
-import java.util.Date;
-
 @Entity
-@Table(name = "risk_hold")
+@Table(
+        name = "risk_hold"
+)
 public class RiskHold {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
+    @Column(
+            name = "id",
+            nullable = false
+    )
     private long id;
-    @Column(name = "risk_hold_id", nullable = false, unique = true)
+    @Column(
+            name = "risk_hold_id",
+            nullable = false,
+            unique = true
+    )
     private String riskHoldId;
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_at")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Column(
+            name = "created_at"
+    )
+    @JsonFormat(
+            pattern = "yyyy-MM-dd"
+    )
     private Date createdAt;
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated_at")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Column(
+            name = "updated_at"
+    )
+    @JsonFormat(
+            pattern = "yyyy-MM-dd"
+    )
     private Date updatedAt;
-    @Column(name = "mid", nullable = true)
+    @Column(
+            name = "mid",
+            nullable = true
+    )
     private String mid;
-    @Column(name = "tid", nullable = true)
+    @Column(
+            name = "tid",
+            nullable = true
+    )
     private String tid;
-    @Column(name = "card_number", nullable = true)
+    @Column(
+            name = "card_number",
+            nullable = true
+    )
     private String cardNumber;
-    @Column(name = "card_type", nullable = true)
+    @Column(
+            name = "card_type",
+            nullable = true
+    )
     private String cardType;
-    @Column(name = "txn_type", nullable = true)
+    @Column(
+            name = "txn_type",
+            nullable = true
+    )
     private String txnType;
-    @Column(name = "rrn", nullable = true)
+    @Column(
+            name = "rrn",
+            nullable = true
+    )
     private String rrn;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "txn_date", nullable = true)
+    @Column(
+            name = "txn_date",
+            nullable = true
+    )
     private Date txnDate;
-    @Column(name = "txn_amount", nullable = true)
+    @Column(
+            name = "txn_amount",
+            nullable = true
+    )
     private String txnAmount;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "hold_date", nullable = true)
+    @Column(
+            name = "hold_date",
+            nullable = true
+    )
     private Date holdDate;
-    @Column(name = "hold_remark", nullable = true)
+    @Column(
+            name = "hold_remark",
+            nullable = true
+    )
     private String holdRemark;
-    @Column(name = "network", nullable = true)
+    @Column(
+            name = "network",
+            nullable = true
+    )
     private String network;
     private String totalAmt;
-    @Column(name = "status", nullable = true)
+    @Column(
+            name = "status",
+            nullable = true
+    )
     private String status;
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(long id) {
@@ -63,7 +124,7 @@ public class RiskHold {
     }
 
     public String getRiskHoldId() {
-        return riskHoldId;
+        return this.riskHoldId;
     }
 
     public void setRiskHoldId(String riskHoldId) {
@@ -71,7 +132,7 @@ public class RiskHold {
     }
 
     public Date getCreatedAt() {
-        return createdAt;
+        return this.createdAt;
     }
 
     public void setCreatedAt(Date createdAt) {
@@ -79,7 +140,7 @@ public class RiskHold {
     }
 
     public Date getUpdatedAt() {
-        return updatedAt;
+        return this.updatedAt;
     }
 
     public void setUpdatedAt(Date updatedAt) {
@@ -87,7 +148,7 @@ public class RiskHold {
     }
 
     public String getMid() {
-        return mid;
+        return this.mid;
     }
 
     public void setMid(String mid) {
@@ -95,7 +156,7 @@ public class RiskHold {
     }
 
     public String getTid() {
-        return tid;
+        return this.tid;
     }
 
     public void setTid(String tid) {
@@ -103,7 +164,7 @@ public class RiskHold {
     }
 
     public String getCardNumber() {
-        return cardNumber;
+        return this.cardNumber;
     }
 
     public void setCardNumber(String cardNumber) {
@@ -111,7 +172,7 @@ public class RiskHold {
     }
 
     public String getCardType() {
-        return cardType;
+        return this.cardType;
     }
 
     public void setCardType(String cardType) {
@@ -119,7 +180,7 @@ public class RiskHold {
     }
 
     public String getTxnType() {
-        return txnType;
+        return this.txnType;
     }
 
     public void setTxnType(String txnType) {
@@ -127,7 +188,7 @@ public class RiskHold {
     }
 
     public String getRrn() {
-        return rrn;
+        return this.rrn;
     }
 
     public void setRrn(String rrn) {
@@ -135,21 +196,15 @@ public class RiskHold {
     }
 
     public Date getTxnDate() {
-        return txnDate;
+        return this.txnDate;
     }
 
-//    public void setTxnDate(Date txnDate) {
-//        this.txnDate = txnDate;
-//    }
-
     public void setTxnDate(Date rawTxnDate) {
-        this.txnDate = rawTxnDate != null ?
-                (String.valueOf(rawTxnDate.getTime()).length() == 10 ? new Date(rawTxnDate.getTime() * 1000) : new Date(rawTxnDate.getTime())) :
-                null;
+        this.txnDate = rawTxnDate != null ? (String.valueOf(rawTxnDate.getTime()).length() == 10 ? new Date(rawTxnDate.getTime() * 1000L) : new Date(rawTxnDate.getTime())) : null;
     }
 
     public String getTxnAmount() {
-        return txnAmount;
+        return this.txnAmount;
     }
 
     public void setTxnAmount(String txnAmount) {
@@ -157,20 +212,15 @@ public class RiskHold {
     }
 
     public Date getHoldDate() {
-        return holdDate;
+        return this.holdDate;
     }
 
-//    public void setHoldDate(Date holdDate) {
-//        this.holdDate = holdDate;
-//    }
     public void setHoldDate(Date rawHoldDate) {
-        this.holdDate = rawHoldDate != null ?
-                (String.valueOf(rawHoldDate.getTime()).length() == 10 ? new Date(rawHoldDate.getTime() * 1000) : new Date(rawHoldDate.getTime())) :
-                null;
+        this.holdDate = rawHoldDate != null ? (String.valueOf(rawHoldDate.getTime()).length() == 10 ? new Date(rawHoldDate.getTime() * 1000L) : new Date(rawHoldDate.getTime())) : null;
     }
 
     public String getHoldRemark() {
-        return holdRemark;
+        return this.holdRemark;
     }
 
     public void setHoldRemark(String holdRemark) {
@@ -178,7 +228,7 @@ public class RiskHold {
     }
 
     public String getNetwork() {
-        return network;
+        return this.network;
     }
 
     public void setNetwork(String network) {
@@ -186,7 +236,7 @@ public class RiskHold {
     }
 
     public String getTotalAmt() {
-        return totalAmt;
+        return this.totalAmt;
     }
 
     public void setTotalAmt(String totalAmt) {
@@ -194,15 +244,15 @@ public class RiskHold {
     }
 
     public String getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setStatus(String status) {
         this.status = status;
     }
 
-    @Override
     public String toString() {
-        return "RiskHold{" + "id=" + id + ", riskHoldId='" + riskHoldId + '\'' + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", mid='" + mid + '\'' + ", tid='" + tid + '\'' + ", cardNumber='" + cardNumber + '\'' + ", cardType='" + cardType + '\'' + ", txnType='" + txnType + '\'' + ", rrn='" + rrn + '\'' + ", txnDate=" + txnDate + ", txnAmount='" + txnAmount + '\'' + ", holdDate=" + holdDate + ", holdRemark='" + holdRemark + '\'' + ", network='" + network + '\'' + ", totalAmt='" + totalAmt + '\'' + ", status='" + status + '\'' + '}';
+        long var10000 = this.id;
+        return "RiskHold{id=" + var10000 + ", riskHoldId='" + this.riskHoldId + "', createdAt=" + String.valueOf(this.createdAt) + ", updatedAt=" + String.valueOf(this.updatedAt) + ", mid='" + this.mid + "', tid='" + this.tid + "', cardNumber='" + this.cardNumber + "', cardType='" + this.cardType + "', txnType='" + this.txnType + "', rrn='" + this.rrn + "', txnDate=" + String.valueOf(this.txnDate) + ", txnAmount='" + this.txnAmount + "', holdDate=" + String.valueOf(this.holdDate) + ", holdRemark='" + this.holdRemark + "', network='" + this.network + "', totalAmt='" + this.totalAmt + "', status='" + this.status + "'}";
     }
 }

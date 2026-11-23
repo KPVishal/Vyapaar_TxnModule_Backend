@@ -5,11 +5,8 @@ public class PushNotificationResponseDto<T> {
     private NotificationDto notification;
     private Object data;
 
-    public PushNotificationResponseDto() {
-    }
-
     public String getToken() {
-        return token;
+        return this.token;
     }
 
     public void setToken(String token) {
@@ -17,7 +14,7 @@ public class PushNotificationResponseDto<T> {
     }
 
     public NotificationDto getNotification() {
-        return notification;
+        return this.notification;
     }
 
     public void setNotification(NotificationDto notification) {
@@ -25,21 +22,15 @@ public class PushNotificationResponseDto<T> {
     }
 
     public Object getData() {
-        return data;
+        return this.data;
     }
 
     public void setData(Object data) {
         this.data = data;
     }
 
-    @Override
     public String toString() {
-        return "PushNotificationResponseDto{" +
-                "token='" + token + '\'' +
-                ", notification=" + notification +
-                ", data=" + data +
-                '}';
+        String var10000 = this.token;
+        return "PushNotificationResponseDto{token='" + var10000 + "', notification=" + String.valueOf(this.notification) + ", data=" + String.valueOf(this.data) + "}";
     }
 }
-
-

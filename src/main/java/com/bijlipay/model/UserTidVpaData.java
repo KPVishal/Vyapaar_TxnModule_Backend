@@ -2,58 +2,100 @@ package com.bijlipay.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "user_tid_vpa_data")
+@Table(
+        name = "user_tid_vpa_data"
+)
 public class UserTidVpaData {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
+    @Column(
+            name = "id"
+    )
     private long id;
-    @Column(name = "tid", nullable = true)
+    @Column(
+            name = "tid",
+            nullable = true
+    )
     private String tid;
-    @Column(name = "mid", nullable = true)
+    @Column(
+            name = "mid",
+            nullable = true
+    )
     private String mid;
-
     @JsonIgnore
-    @Column(name = "is_active")
+    @Column(
+            name = "is_active"
+    )
     private boolean isActive = true;
-
-    @Column(name = "is_bijlipay_switch")
+    @Column(
+            name = "is_bijlipay_switch"
+    )
     private boolean isBijlipaySwitch = true;
-
-    @Column(name = "lead_id", nullable = true)
+    @Column(
+            name = "lead_id",
+            nullable = true
+    )
     private long leadId;
-
-    @Column(name = "created_at", nullable = true)
+    @Column(
+            name = "created_at",
+            nullable = true
+    )
     private String createdAt;
-    @Column(name = "is_scanned", nullable = true)
+    @Column(
+            name = "is_scanned",
+            nullable = true
+    )
     private String isScanned;
-    @Column(name = "updated_at", nullable = true)
+    @Column(
+            name = "updated_at",
+            nullable = true
+    )
     private String updatedAt;
-    @Column(name = "vpa", nullable = true)
+    @Column(
+            name = "vpa",
+            nullable = true
+    )
     private String vpa;
-
-    @Column(name = "qr_lead_id", nullable = true)
+    @Column(
+            name = "qr_lead_id",
+            nullable = true
+    )
     private String qrLeadId;
-
-
     @JsonBackReference
-//    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    @ManyToOne(
+            optional = false,
+            fetch = FetchType.EAGER
+    )
+    @JoinColumn(
+            name = "user_id",
+            referencedColumnName = "user_id"
+    )
     private User user;
-
-    @Column(name = "is_qr", columnDefinition = "tinyint(1) default 0")
-    private boolean isQR; // 0 - pos, 1- qr
-
-    @Column(name = "institution_code")
+    @Column(
+            name = "is_qr",
+            columnDefinition = "tinyint(1) default 0"
+    )
+    private boolean isQR;
+    @Column(
+            name = "institution_code"
+    )
     private String institutionCode;
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(long id) {
@@ -61,7 +103,7 @@ public class UserTidVpaData {
     }
 
     public String getTid() {
-        return tid;
+        return this.tid;
     }
 
     public void setTid(String tid) {
@@ -69,7 +111,7 @@ public class UserTidVpaData {
     }
 
     public String getMid() {
-        return mid;
+        return this.mid;
     }
 
     public void setMid(String mid) {
@@ -77,23 +119,23 @@ public class UserTidVpaData {
     }
 
     public boolean isActive() {
-        return isActive;
+        return this.isActive;
     }
 
     public void setActive(boolean active) {
-        isActive = active;
+        this.isActive = active;
     }
 
     public boolean isBijlipaySwitch() {
-        return isBijlipaySwitch;
+        return this.isBijlipaySwitch;
     }
 
     public void setBijlipaySwitch(boolean bijlipaySwitch) {
-        isBijlipaySwitch = bijlipaySwitch;
+        this.isBijlipaySwitch = bijlipaySwitch;
     }
 
     public long getLeadId() {
-        return leadId;
+        return this.leadId;
     }
 
     public void setLeadId(long leadId) {
@@ -101,7 +143,7 @@ public class UserTidVpaData {
     }
 
     public String getCreatedAt() {
-        return createdAt;
+        return this.createdAt;
     }
 
     public void setCreatedAt(String createdAt) {
@@ -109,7 +151,7 @@ public class UserTidVpaData {
     }
 
     public String getIsScanned() {
-        return isScanned;
+        return this.isScanned;
     }
 
     public void setIsScanned(String isScanned) {
@@ -117,7 +159,7 @@ public class UserTidVpaData {
     }
 
     public String getUpdatedAt() {
-        return updatedAt;
+        return this.updatedAt;
     }
 
     public void setUpdatedAt(String updatedAt) {
@@ -125,7 +167,7 @@ public class UserTidVpaData {
     }
 
     public String getVpa() {
-        return vpa;
+        return this.vpa;
     }
 
     public void setVpa(String vpa) {
@@ -133,7 +175,7 @@ public class UserTidVpaData {
     }
 
     public String getQrLeadId() {
-        return qrLeadId;
+        return this.qrLeadId;
     }
 
     public void setQrLeadId(String qrLeadId) {
@@ -141,7 +183,7 @@ public class UserTidVpaData {
     }
 
     public User getUser() {
-        return user;
+        return this.user;
     }
 
     public void setUser(User user) {
@@ -149,15 +191,15 @@ public class UserTidVpaData {
     }
 
     public boolean isQR() {
-        return isQR;
+        return this.isQR;
     }
 
     public void setQR(boolean QR) {
-        isQR = QR;
+        this.isQR = QR;
     }
 
     public String getInstitutionCode() {
-        return institutionCode;
+        return this.institutionCode;
     }
 
     public void setInstitutionCode(String institutionCode) {

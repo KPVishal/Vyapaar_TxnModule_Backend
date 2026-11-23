@@ -3,8 +3,6 @@ package com.bijlipay.model.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-
 @Component
 public class JupiterTxnData {
     @JsonProperty("mti")
@@ -40,9 +38,8 @@ public class JupiterTxnData {
     @JsonProperty("authCode")
     private String authCode;
 
-
     public String getMti() {
-        return mti;
+        return this.mti;
     }
 
     public void setMti(String mti) {
@@ -50,7 +47,7 @@ public class JupiterTxnData {
     }
 
     public String getTxnType() {
-        return txnType;
+        return this.txnType;
     }
 
     public void setTxnType(String txnType) {
@@ -58,7 +55,7 @@ public class JupiterTxnData {
     }
 
     public String getTerminalId() {
-        return terminalId;
+        return this.terminalId;
     }
 
     public void setTerminalId(String terminalId) {
@@ -66,7 +63,7 @@ public class JupiterTxnData {
     }
 
     public String getMerchantId() {
-        return merchantId;
+        return this.merchantId;
     }
 
     public void setMerchantId(String merchantId) {
@@ -74,7 +71,7 @@ public class JupiterTxnData {
     }
 
     public String getTxnDate() {
-        return txnDate;
+        return this.txnDate;
     }
 
     public void setTxnDate(String txnDate) {
@@ -82,7 +79,7 @@ public class JupiterTxnData {
     }
 
     public String getTxnTime() {
-        return txnTime;
+        return this.txnTime;
     }
 
     public void setTxnTime(String txnTime) {
@@ -90,7 +87,7 @@ public class JupiterTxnData {
     }
 
     public String getTxnAmount() {
-        return txnAmount;
+        return this.txnAmount;
     }
 
     public void setTxnAmount(String txnAmount) {
@@ -98,7 +95,7 @@ public class JupiterTxnData {
     }
 
     public String getTxnResponseCode() {
-        return txnResponseCode;
+        return this.txnResponseCode;
     }
 
     public void setTxnResponseCode(String txnResponseCode) {
@@ -106,7 +103,7 @@ public class JupiterTxnData {
     }
 
     public String getResponseReceivedTime() {
-        return responseReceivedTime;
+        return this.responseReceivedTime;
     }
 
     public void setResponseReceivedTime(String responseReceivedTime) {
@@ -114,7 +111,7 @@ public class JupiterTxnData {
     }
 
     public String getRrn() {
-        return rrn;
+        return this.rrn;
     }
 
     public void setRrn(String rrn) {
@@ -122,7 +119,7 @@ public class JupiterTxnData {
     }
 
     public String getStan() {
-        return stan;
+        return this.stan;
     }
 
     public void setStan(String stan) {
@@ -130,7 +127,7 @@ public class JupiterTxnData {
     }
 
     public String getInvoiceNumber() {
-        return invoiceNumber;
+        return this.invoiceNumber;
     }
 
     public void setInvoiceNumber(String invoiceNumber) {
@@ -138,7 +135,7 @@ public class JupiterTxnData {
     }
 
     public String getBatchNumber() {
-        return batchNumber;
+        return this.batchNumber;
     }
 
     public void setBatchNumber(String batchNumber) {
@@ -146,7 +143,7 @@ public class JupiterTxnData {
     }
 
     public String getTxnAdditionalAmount() {
-        return txnAdditionalAmount;
+        return this.txnAdditionalAmount;
     }
 
     public void setTxnAdditionalAmount(String txnAdditionalAmount) {
@@ -154,7 +151,7 @@ public class JupiterTxnData {
     }
 
     public String getMaskedCardNumber() {
-        return maskedCardNumber;
+        return this.maskedCardNumber;
     }
 
     public void setMaskedCardNumber(String maskedCardNumber) {
@@ -162,33 +159,14 @@ public class JupiterTxnData {
     }
 
     public String getAuthCode() {
-        return authCode;
+        return this.authCode;
     }
 
     public void setAuthCode(String authCode) {
         this.authCode = authCode;
     }
 
-    @Override
     public String toString() {
-        return "JupiterTxnData{" +
-                "mti='" + mti + '\'' +
-                ", txnType='" + txnType + '\'' +
-                ", terminalId='" + terminalId + '\'' +
-                ", merchantId='" + merchantId + '\'' +
-                ", txnDate='" + txnDate + '\'' +
-                ", txnTime='" + txnTime + '\'' +
-                ", txnAmount='" + txnAmount + '\'' +
-                ", txnResponseCode='" + txnResponseCode + '\'' +
-                ", responseReceivedTime=" + responseReceivedTime +
-                ", rrn='" + rrn + '\'' +
-                ", stan='" + stan + '\'' +
-                ", invoiceNumber='" + invoiceNumber + '\'' +
-                ", batchNumber='" + batchNumber + '\'' +
-                ", txnAdditionalAmount='" + txnAdditionalAmount + '\'' +
-                ", maskedCardNumber='" + maskedCardNumber + '\'' +
-                ", authCode='" + authCode + '\'' +
-                '}';
+        return "JupiterTxnData{mti='" + this.mti + "', txnType='" + this.txnType + "', terminalId='" + this.terminalId + "', merchantId='" + this.merchantId + "', txnDate='" + this.txnDate + "', txnTime='" + this.txnTime + "', txnAmount='" + this.txnAmount + "', txnResponseCode='" + this.txnResponseCode + "', responseReceivedTime=" + this.responseReceivedTime + ", rrn='" + this.rrn + "', stan='" + this.stan + "', invoiceNumber='" + this.invoiceNumber + "', batchNumber='" + this.batchNumber + "', txnAdditionalAmount='" + this.txnAdditionalAmount + "', maskedCardNumber='" + this.maskedCardNumber + "', authCode='" + this.authCode + "'}";
     }
 }
-

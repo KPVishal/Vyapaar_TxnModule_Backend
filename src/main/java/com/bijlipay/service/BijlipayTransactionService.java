@@ -1,23 +1,23 @@
 package com.bijlipay.service;
 
-import com.bijlipay.txndb.model.BijlipayTransaction;
 import com.bijlipay.model.Invoice;
 import com.bijlipay.model.UserTidVpaData;
-import com.bijlipay.model.dto.*;
+import com.bijlipay.model.dto.AxisQrTransactionDto;
+import com.bijlipay.model.dto.JupiterTxnData;
+import com.bijlipay.model.dto.SettlementNotificationDto;
+import com.bijlipay.model.dto.SwitchTransactionsDto;
+import com.bijlipay.model.dto.TransactionRequestDto;
 import com.bijlipay.model.dto.notification.SettlementNotificationUpdate;
-import org.apache.poi.xssf.streaming.SXSSFWorkbook;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.util.Pair;
-import org.springframework.http.HttpStatus;
 
-import javax.mail.MessagingException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
+import javax.mail.MessagingException;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface BijlipayTransactionService {
     List<Object[]> getSumOfTodayAndYesterdayVoidAndReversalTxnAmount(String tid, long sessionUserId);
@@ -32,16 +32,15 @@ public interface BijlipayTransactionService {
 
     Page<AxisQrTransactionDto> getAxisQrTransactionDetails(Optional<Integer> action, Optional<Integer> value, Optional<String> searchTerm, Optional<Long> from, Optional<Long> to, List<String> vpaDetails, Optional<List<String>> vpa, Pageable pageable) throws ParseException;
 
-    Page<SwitchTransactionsDto> getSwitchTransactionsSearch(Optional<Integer> action, List<String> tidList,Optional<List<String>> tid, TransactionRequestDto requestDto, Optional<Long> from, Optional<Long> to, Optional<String> searchTerm, Pageable pageable) throws ParseException;
-
+    Page<SwitchTransactionsDto> getSwitchTransactionsSearch(Optional<Integer> action, List<String> tidList, Optional<List<String>> tid, TransactionRequestDto requestDto, Optional<Long> from, Optional<Long> to, Optional<String> searchTerm, Pageable pageable) throws ParseException;
 
     Page<SwitchTransactionsDto> getSwitchTransactionsSearchData(Optional<Integer> action, List<String> tidList, Optional<List<String>> tid, TransactionRequestDto requestDto, Optional<Long> from, Optional<Long> to, Optional<String> searchTerm, Pageable pageable) throws ParseException;
 
     InputStreamResource downloadTransactionReport(Optional<Integer> action, List<String> tidList, Optional<String> tid, TransactionRequestDto requestDto, Optional<Long> from, Optional<Long> to, Optional<String> searchTerm) throws IOException, ParseException;
 
-    InputStreamResource downloadQrTransactionReport(Optional<Integer> action, Optional<Integer> value, Optional<String> searchTerm, Optional<Long> from, Optional<Long> to, List<String> vpaDetails,Optional<String> vpa) throws ParseException;
+    InputStreamResource downloadQrTransactionReport(Optional<Integer> action, Optional<Integer> value, Optional<String> searchTerm, Optional<Long> from, Optional<Long> to, List<String> vpaDetails, Optional<String> vpa) throws ParseException;
 
-    InputStreamResource downloadQrTransactionReportData(Optional<Integer> action, Optional<Integer> value, Optional<String> searchTerm, Optional<Long> from, Optional<Long> to, List<String> vpaDetails,Optional<String> vpa) throws ParseException;
+    InputStreamResource downloadQrTransactionReportData(Optional<Integer> action, Optional<Integer> value, Optional<String> searchTerm, Optional<Long> from, Optional<Long> to, List<String> vpaDetails, Optional<String> vpa) throws ParseException;
 
     void requestMailForInvoiceCreation(Invoice invoice) throws MessagingException;
 
@@ -81,5 +80,5 @@ public interface BijlipayTransactionService {
 
     Double getSwitchTransactionsSearchAmount(Optional<Integer> action, List<String> tidData, Optional<List<String>> tid, TransactionRequestDto requestDto, Optional<Long> from, Optional<Long> to, Optional<String> searchTerm) throws ParseException;
 
-    BijlipayTransaction store(JupiterTxnData jupiterTxnData) throws ParseException;
+    void store(JupiterTxnData jupiterTxnData) throws ParseException;
 }

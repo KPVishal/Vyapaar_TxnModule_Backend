@@ -1,17 +1,22 @@
 package com.bijlipay.security;
 
 import com.bijlipay.model.dto.PasswordToken;
-import io.jsonwebtoken.*;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.SignatureException;
+import io.jsonwebtoken.UnsupportedJwtException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.Date;
+import java.util.function.Function;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.Date;
-import java.util.function.Function;
 
 @Component
 public class JwtTokenProvider {
@@ -22,27 +27,27 @@ public class JwtTokenProvider {
     private int jwtExpirationInMs;
 
     public Date getExpirationDateFromToken(String token) {
-        return getClaimsBody(token, Claims::getExpiration);
+        return (Date)this.getClaimsBody(token, Claims::getExpiration);
     }
 
     public int getUserIdFromJWT(String token) {
-        return Integer.parseInt(getClaimsBody(token, Claims::getSubject));
+        return Integer.parseInt((String)this.getClaimsBody(token, Claims::getSubject));
     }
 
     private <T> T getClaimsBody(String token, Function<Claims, T> clamis) {
-        final Claims claimsbody = getAllClaimsFromToken(token);
-        return clamis.apply(claimsbody);
+        Claims claimsbody = this.getAllClaimsFromToken(token);
+        return (T)clamis.apply(claimsbody);
     }
 
     private Claims getAllClaimsFromToken(String token) {
-        return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody();
+        return (Claims)Jwts.parser().setSigningKey(this.jwtSecret).parseClaimsJws(token).getBody();
     }
 
     public String generateToken(Authentication authentication) {
-        UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
+        UserPrincipal userPrincipal = (UserPrincipal)authentication.getPrincipal();
         Date now = new Date();
-        Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);
-        return Jwts.builder().setSubject(Long.toString(userPrincipal.getId())).setIssuedAt(new Date()).setExpiration(expiryDate).signWith(SignatureAlgorithm.HS512, jwtSecret).compact();
+        Date expiryDate = new Date(now.getTime() + (long)this.jwtExpirationInMs);
+        return Jwts.builder().setSubject(Long.toString(userPrincipal.getId())).setIssuedAt(new Date()).setExpiration(expiryDate).signWith(SignatureAlgorithm.HS512, this.jwtSecret).compact();
     }
 
     public String generatePasswordToken(PasswordToken token) {
@@ -50,19 +55,20 @@ public class JwtTokenProvider {
         claims.put("userId", token.getUserId());
         claims.put("used", token.isUsed());
         claims.put("oneTimePassword", token.getOneTimePassword());
-        return Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.HS512, jwtSecret).setIssuedAt(new Date(System.currentTimeMillis())).setExpiration(new Date(System.currentTimeMillis() + 1000000 * 60 * 30)).compact();
+        return Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.HS512, this.jwtSecret).setIssuedAt(new Date(System.currentTimeMillis())).setExpiration(new Date(System.currentTimeMillis() + 1800000000L)).compact();
     }
 
     public PasswordToken validatePasswordToken(String token) throws UnsupportedEncodingException {
         token = URLDecoder.decode(token, "UTF-8");
-        PasswordToken passwordToken;
+
         try {
-            Claims body = Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody();
+            Claims body = (Claims)Jwts.parser().setSigningKey(this.jwtSecret).parseClaimsJws(token).getBody();
             if (body.get("userId") != null && !body.get("userId").equals("") && body.getExpiration().getTime() > System.currentTimeMillis()) {
-                passwordToken = new PasswordToken();
-                passwordToken.setOneTimePassword((Integer) body.get("oneTimePassword"));
-                passwordToken.setUserId((Integer) body.get("userId"));
-                passwordToken.setUsed((Boolean) body.get("used"));
+                PasswordToken passwordToken = new PasswordToken();
+                passwordToken.setOneTimePassword((Integer)body.get("oneTimePassword"));
+                passwordToken.setUserId((long)(Integer)body.get("userId"));
+                passwordToken.setUsed((Boolean)body.get("used"));
+                return passwordToken;
             } else {
                 throw new RuntimeException("Invalid token!");
             }
@@ -70,24 +76,24 @@ public class JwtTokenProvider {
             System.out.println(e);
             throw e;
         }
-        return passwordToken;
     }
 
     public boolean validateToken(String authToken) {
         try {
-            Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
+            Jwts.parser().setSigningKey(this.jwtSecret).parseClaimsJws(authToken);
             return true;
-        } catch (SignatureException ex) {
+        } catch (SignatureException var3) {
             logger.error("Invalid JWT signature");
-        } catch (MalformedJwtException ex) {
+        } catch (MalformedJwtException var4) {
             logger.error("Invalid JWT token");
-        } catch (ExpiredJwtException ex) {
+        } catch (ExpiredJwtException var5) {
             logger.error("Expired JWT token");
-        } catch (UnsupportedJwtException ex) {
+        } catch (UnsupportedJwtException var6) {
             logger.error("Unsupported JWT token");
-        } catch (IllegalArgumentException ex) {
+        } catch (IllegalArgumentException var7) {
             logger.error("JWT claims string is empty.");
         }
+
         return false;
     }
 }

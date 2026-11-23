@@ -2,7 +2,6 @@ package com.bijlipay.service;
 
 import com.bijlipay.model.User;
 import com.bijlipay.model.UserTidVpaData;
-
 import java.util.List;
 
 public interface UserTidVpaDataService {

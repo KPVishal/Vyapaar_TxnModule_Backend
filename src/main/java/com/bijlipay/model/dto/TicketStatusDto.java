@@ -6,7 +6,7 @@ public class TicketStatusDto {
     private String justiFication;
 
     public String getTicketNumber() {
-        return ticketNumber;
+        return this.ticketNumber;
     }
 
     public void setTicketNumber(String ticketNumber) {
@@ -14,7 +14,7 @@ public class TicketStatusDto {
     }
 
     public String getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setStatus(String status) {
@@ -22,15 +22,14 @@ public class TicketStatusDto {
     }
 
     public String getJustiFication() {
-        return justiFication;
+        return this.justiFication;
     }
 
     public void setJustiFication(String justiFication) {
         this.justiFication = justiFication;
     }
 
-    @Override
     public String toString() {
-        return "TicketStatusDto{" + "ticketNumber='" + ticketNumber + '\'' + ", status='" + status + '\'' + ", justiFication='" + justiFication + '\'' + '}';
+        return "TicketStatusDto{ticketNumber='" + this.ticketNumber + "', status='" + this.status + "', justiFication='" + this.justiFication + "'}";
     }
 }

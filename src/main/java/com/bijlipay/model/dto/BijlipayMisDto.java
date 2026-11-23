@@ -52,7 +52,7 @@ public class BijlipayMisDto {
     private String txnType;
 
     public BigInteger getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(BigInteger id) {
@@ -60,23 +60,23 @@ public class BijlipayMisDto {
     }
 
     public String getAggregatorName() {
-        return AggregatorName;
+        return this.AggregatorName;
     }
 
     public void setAggregatorName(String aggregatorName) {
-        AggregatorName = aggregatorName;
+        this.AggregatorName = aggregatorName;
     }
 
     public String getApproval_Code() {
-        return Approval_Code;
+        return this.Approval_Code;
     }
 
     public void setApproval_Code(String approval_Code) {
-        Approval_Code = approval_Code;
+        this.Approval_Code = approval_Code;
     }
 
     public Double getASSOCIATION_fee() {
-        return ASSOCIATION_fee;
+        return this.ASSOCIATION_fee;
     }
 
     public void setASSOCIATION_fee(Double ASSOCIATION_fee) {
@@ -84,15 +84,15 @@ public class BijlipayMisDto {
     }
 
     public String getAssociationName() {
-        return AssociationName;
+        return this.AssociationName;
     }
 
     public void setAssociationName(String associationName) {
-        AssociationName = associationName;
+        this.AssociationName = associationName;
     }
 
     public String getBank() {
-        return bank;
+        return this.bank;
     }
 
     public void setBank(String bank) {
@@ -100,31 +100,31 @@ public class BijlipayMisDto {
     }
 
     public String getBatch_Code() {
-        return Batch_Code;
+        return this.Batch_Code;
     }
 
     public void setBatch_Code(String batch_Code) {
-        Batch_Code = batch_Code;
+        this.Batch_Code = batch_Code;
     }
 
     public String getCardNo() {
-        return CardNo;
+        return this.CardNo;
     }
 
     public void setCardNo(String cardNo) {
-        CardNo = cardNo;
+        this.CardNo = cardNo;
     }
 
     public String getCardProduct() {
-        return CardProduct;
+        return this.CardProduct;
     }
 
     public void setCardProduct(String cardProduct) {
-        CardProduct = cardProduct;
+        this.CardProduct = cardProduct;
     }
 
     public String getCardType() {
-        return cardType;
+        return this.cardType;
     }
 
     public void setCardType(String cardType) {
@@ -132,23 +132,23 @@ public class BijlipayMisDto {
     }
 
     public String getCardType1() {
-        return CardType1;
+        return this.CardType1;
     }
 
     public void setCardType1(String cardType1) {
-        CardType1 = cardType1;
+        this.CardType1 = cardType1;
     }
 
     public Double getCard_type_A() {
-        return Card_type_A;
+        return this.Card_type_A;
     }
 
     public void setCard_type_A(Double card_type_A) {
-        Card_type_A = card_type_A;
+        this.Card_type_A = card_type_A;
     }
 
     public Double getCc_fuel_new_ic_fee() {
-        return cc_fuel_new_ic_fee;
+        return this.cc_fuel_new_ic_fee;
     }
 
     public void setCc_fuel_new_ic_fee(Double cc_fuel_new_ic_fee) {
@@ -156,7 +156,7 @@ public class BijlipayMisDto {
     }
 
     public String getCity() {
-        return city;
+        return this.city;
     }
 
     public void setCity(String city) {
@@ -164,7 +164,7 @@ public class BijlipayMisDto {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -172,7 +172,7 @@ public class BijlipayMisDto {
     }
 
     public Double getGst() {
-        return gst;
+        return this.gst;
     }
 
     public void setGst(Double gst) {
@@ -180,7 +180,7 @@ public class BijlipayMisDto {
     }
 
     public String getIfsc() {
-        return ifsc;
+        return this.ifsc;
     }
 
     public void setIfsc(String ifsc) {
@@ -188,7 +188,7 @@ public class BijlipayMisDto {
     }
 
     public Double getIncentive() {
-        return incentive;
+        return this.incentive;
     }
 
     public void setIncentive(Double incentive) {
@@ -196,7 +196,7 @@ public class BijlipayMisDto {
     }
 
     public String getLocation() {
-        return location;
+        return this.location;
     }
 
     public void setLocation(String location) {
@@ -204,7 +204,7 @@ public class BijlipayMisDto {
     }
 
     public Double getMcc() {
-        return mcc;
+        return this.mcc;
     }
 
     public void setMcc(Double mcc) {
@@ -212,7 +212,7 @@ public class BijlipayMisDto {
     }
 
     public String getMCC_Desc() {
-        return MCC_Desc;
+        return this.MCC_Desc;
     }
 
     public void setMCC_Desc(String MCC_Desc) {
@@ -220,7 +220,7 @@ public class BijlipayMisDto {
     }
 
     public Double getMdr_bj_calculation() {
-        return mdr_bj_calculation;
+        return this.mdr_bj_calculation;
     }
 
     public void setMdr_bj_calculation(Double mdr_bj_calculation) {
@@ -228,7 +228,7 @@ public class BijlipayMisDto {
     }
 
     public Double getMdr_perc_table() {
-        return mdr_perc_table;
+        return this.mdr_perc_table;
     }
 
     public void setMdr_perc_table(Double mdr_perc_table) {
@@ -236,7 +236,7 @@ public class BijlipayMisDto {
     }
 
     public Double getMdr_percentage() {
-        return mdr_percentage;
+        return this.mdr_percentage;
     }
 
     public void setMdr_percentage(Double mdr_percentage) {
@@ -244,7 +244,7 @@ public class BijlipayMisDto {
     }
 
     public String getMerchantName() {
-        return merchantName;
+        return this.merchantName;
     }
 
     public void setMerchantName(String merchantName) {
@@ -252,7 +252,7 @@ public class BijlipayMisDto {
     }
 
     public String getMid() {
-        return mid;
+        return this.mid;
     }
 
     public void setMid(String mid) {
@@ -260,7 +260,7 @@ public class BijlipayMisDto {
     }
 
     public Double getMdr() {
-        return mdr;
+        return this.mdr;
     }
 
     public void setMdr(Double mdr) {
@@ -268,15 +268,15 @@ public class BijlipayMisDto {
     }
 
     public String getNarration() {
-        return Narration;
+        return this.Narration;
     }
 
     public void setNarration(String narration) {
-        Narration = narration;
+        this.Narration = narration;
     }
 
     public String getNe_MDR() {
-        return ne_MDR;
+        return this.ne_MDR;
     }
 
     public void setNe_MDR(String ne_MDR) {
@@ -284,23 +284,23 @@ public class BijlipayMisDto {
     }
 
     public Double getNetamount() {
-        return Netamount;
+        return this.Netamount;
     }
 
     public void setNetamount(Double netamount) {
-        Netamount = netamount;
+        this.Netamount = netamount;
     }
 
     public Double getNew_IC_Fee() {
-        return New_IC_Fee;
+        return this.New_IC_Fee;
     }
 
     public void setNew_IC_Fee(Double new_IC_Fee) {
-        New_IC_Fee = new_IC_Fee;
+        this.New_IC_Fee = new_IC_Fee;
     }
 
     public Double getNew_non_ic_fee() {
-        return new_non_ic_fee;
+        return this.new_non_ic_fee;
     }
 
     public void setNew_non_ic_fee(Double new_non_ic_fee) {
@@ -308,15 +308,15 @@ public class BijlipayMisDto {
     }
 
     public String getPaymentdate() {
-        return Paymentdate;
+        return this.Paymentdate;
     }
 
     public void setPaymentdate(String paymentdate) {
-        Paymentdate = paymentdate;
+        this.Paymentdate = paymentdate;
     }
 
     public String getrRN() {
-        return rRN;
+        return this.rRN;
     }
 
     public void setrRN(String rRN) {
@@ -324,7 +324,7 @@ public class BijlipayMisDto {
     }
 
     public String getState() {
-        return state;
+        return this.state;
     }
 
     public void setState(String state) {
@@ -332,7 +332,7 @@ public class BijlipayMisDto {
     }
 
     public Double getSurcharge() {
-        return surcharge;
+        return this.surcharge;
     }
 
     public void setSurcharge(Double surcharge) {
@@ -340,7 +340,7 @@ public class BijlipayMisDto {
     }
 
     public Double getSurcharge_new_omc() {
-        return surcharge_new_omc;
+        return this.surcharge_new_omc;
     }
 
     public void setSurcharge_new_omc(Double surcharge_new_omc) {
@@ -348,15 +348,15 @@ public class BijlipayMisDto {
     }
 
     public String getTerminalSerialNo() {
-        return TerminalSerialNo;
+        return this.TerminalSerialNo;
     }
 
     public void setTerminalSerialNo(String terminalSerialNo) {
-        TerminalSerialNo = terminalSerialNo;
+        this.TerminalSerialNo = terminalSerialNo;
     }
 
     public String getTid() {
-        return tid;
+        return this.tid;
     }
 
     public void setTid(String tid) {
@@ -364,15 +364,15 @@ public class BijlipayMisDto {
     }
 
     public String getTradename() {
-        return Tradename;
+        return this.Tradename;
     }
 
     public void setTradename(String tradename) {
-        Tradename = tradename;
+        this.Tradename = tradename;
     }
 
     public Date getTxnDate() {
-        return txnDate;
+        return this.txnDate;
     }
 
     public void setTxnDate(Date txnDate) {
@@ -380,7 +380,7 @@ public class BijlipayMisDto {
     }
 
     public Double getTxnamount() {
-        return txnamount;
+        return this.txnamount;
     }
 
     public void setTxnamount(Double txnamount) {
@@ -388,7 +388,7 @@ public class BijlipayMisDto {
     }
 
     public String getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setStatus(String status) {
@@ -396,7 +396,7 @@ public class BijlipayMisDto {
     }
 
     public String getShell() {
-        return shell;
+        return this.shell;
     }
 
     public void setShell(String shell) {
@@ -404,7 +404,7 @@ public class BijlipayMisDto {
     }
 
     public String getSource() {
-        return source;
+        return this.source;
     }
 
     public void setSource(String source) {
@@ -412,15 +412,15 @@ public class BijlipayMisDto {
     }
 
     public String getTxnType() {
-        return txnType;
+        return this.txnType;
     }
 
     public void setTxnType(String txnType) {
         this.txnType = txnType;
     }
 
-    @Override
     public String toString() {
-        return "BijlipayMisDto{" + "id=" + id + ", AggregatorName='" + AggregatorName + '\'' + ", Approval_Code='" + Approval_Code + '\'' + ", ASSOCIATION_fee=" + ASSOCIATION_fee + ", AssociationName='" + AssociationName + '\'' + ", bank='" + bank + '\'' + ", Batch_Code='" + Batch_Code + '\'' + ", CardNo='" + CardNo + '\'' + ", CardProduct='" + CardProduct + '\'' + ", cardType='" + cardType + '\'' + ", CardType1='" + CardType1 + '\'' + ", Card_type_A=" + Card_type_A + ", cc_fuel_new_ic_fee=" + cc_fuel_new_ic_fee + ", city='" + city + '\'' + ", email='" + email + '\'' + ", gst=" + gst + ", ifsc='" + ifsc + '\'' + ", incentive=" + incentive + ", location='" + location + '\'' + ", mcc=" + mcc + ", MCC_Desc='" + MCC_Desc + '\'' + ", mdr_bj_calculation=" + mdr_bj_calculation + ", mdr_perc_table=" + mdr_perc_table + ", mdr_percentage=" + mdr_percentage + ", merchantName='" + merchantName + '\'' + ", mid='" + mid + '\'' + ", mdr=" + mdr + ", Narration='" + Narration + '\'' + ", ne_MDR='" + ne_MDR + '\'' + ", Netamount=" + Netamount + ", New_IC_Fee=" + New_IC_Fee + ", new_non_ic_fee=" + new_non_ic_fee + ", Paymentdate='" + Paymentdate + '\'' + ", rRN='" + rRN + '\'' + ", state='" + state + '\'' + ", surcharge=" + surcharge + ", surcharge_new_omc=" + surcharge_new_omc + ", TerminalSerialNo='" + TerminalSerialNo + '\'' + ", tid='" + tid + '\'' + ", Tradename='" + Tradename + '\'' + ", txnDate=" + txnDate + ", txnamount=" + txnamount + ", status='" + status + '\'' + ", shell='" + shell + '\'' + ", source='" + source + '\'' + ", txnType='" + txnType + '\'' + '}';
+        String var10000 = String.valueOf(this.id);
+        return "BijlipayMisDto{id=" + var10000 + ", AggregatorName='" + this.AggregatorName + "', Approval_Code='" + this.Approval_Code + "', ASSOCIATION_fee=" + this.ASSOCIATION_fee + ", AssociationName='" + this.AssociationName + "', bank='" + this.bank + "', Batch_Code='" + this.Batch_Code + "', CardNo='" + this.CardNo + "', CardProduct='" + this.CardProduct + "', cardType='" + this.cardType + "', CardType1='" + this.CardType1 + "', Card_type_A=" + this.Card_type_A + ", cc_fuel_new_ic_fee=" + this.cc_fuel_new_ic_fee + ", city='" + this.city + "', email='" + this.email + "', gst=" + this.gst + ", ifsc='" + this.ifsc + "', incentive=" + this.incentive + ", location='" + this.location + "', mcc=" + this.mcc + ", MCC_Desc='" + this.MCC_Desc + "', mdr_bj_calculation=" + this.mdr_bj_calculation + ", mdr_perc_table=" + this.mdr_perc_table + ", mdr_percentage=" + this.mdr_percentage + ", merchantName='" + this.merchantName + "', mid='" + this.mid + "', mdr=" + this.mdr + ", Narration='" + this.Narration + "', ne_MDR='" + this.ne_MDR + "', Netamount=" + this.Netamount + ", New_IC_Fee=" + this.New_IC_Fee + ", new_non_ic_fee=" + this.new_non_ic_fee + ", Paymentdate='" + this.Paymentdate + "', rRN='" + this.rRN + "', state='" + this.state + "', surcharge=" + this.surcharge + ", surcharge_new_omc=" + this.surcharge_new_omc + ", TerminalSerialNo='" + this.TerminalSerialNo + "', tid='" + this.tid + "', Tradename='" + this.Tradename + "', txnDate=" + String.valueOf(this.txnDate) + ", txnamount=" + this.txnamount + ", status='" + this.status + "', shell='" + this.shell + "', source='" + this.source + "', txnType='" + this.txnType + "'}";
     }
 }

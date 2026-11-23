@@ -8,7 +8,7 @@ public class BaseEmail {
     private String attachmentName;
 
     public String getAttachmentName() {
-        return attachmentName;
+        return this.attachmentName;
     }
 
     public void setAttachmentName(String attachmentName) {
@@ -16,7 +16,7 @@ public class BaseEmail {
     }
 
     public String getReceiverEmail() {
-        return receiverEmail;
+        return this.receiverEmail;
     }
 
     public void setReceiverEmail(String receiverEmail) {
@@ -24,7 +24,7 @@ public class BaseEmail {
     }
 
     public String getReceiverName() {
-        return receiverName;
+        return this.receiverName;
     }
 
     public void setReceiverName(String receiverName) {
@@ -32,7 +32,7 @@ public class BaseEmail {
     }
 
     public String getSubject() {
-        return subject;
+        return this.subject;
     }
 
     public void setSubject(String subject) {
@@ -40,10 +40,11 @@ public class BaseEmail {
     }
 
     public String getBody() {
-        return body;
+        return this.body;
     }
 
     public void setBody(String body) {
         this.body = body;
     }
 }
+

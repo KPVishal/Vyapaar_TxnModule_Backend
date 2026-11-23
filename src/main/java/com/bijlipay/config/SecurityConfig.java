@@ -3,6 +3,8 @@ package com.bijlipay.config;
 import com.bijlipay.security.CustomUserDetailsService;
 import com.bijlipay.security.JwtAuthenticationEntryPoint;
 import com.bijlipay.security.JwtAuthenticationFilter;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ThreadPoolExecutor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -11,28 +13,23 @@ import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CommonsRequestLoggingFilter;
-
-import javax.servlet.Filter;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ThreadPoolExecutor;
 
 @EnableAsync
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(
+        prePostEnabled = true
+)
 public class SecurityConfig {
     @Configuration
     @Order(1)
@@ -42,15 +39,13 @@ public class SecurityConfig {
         @Value("${basic.auth.password}")
         private String basicAuthPassword;
 
-        @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.antMatcher("/txn/tpt/**").authorizeRequests().anyRequest().fullyAuthenticated().and().httpBasic().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf().disable();
+            ((HttpSecurity)((HttpSecurity)((HttpSecurity)((ExpressionUrlAuthorizationConfigurer.AuthorizedUrl)http.antMatcher("/txn/tpt/**").authorizeRequests().anyRequest()).fullyAuthenticated().and()).httpBasic().and()).sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()).csrf().disable();
         }
 
-        @Override
         protected void configure(AuthenticationManagerBuilder auth) throws Exception {
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-            auth.inMemoryAuthentication().withUser(basicAuthUsername).password(encoder.encode(basicAuthPassword)).roles("BASIC_USER");
+            auth.inMemoryAuthentication().withUser(this.basicAuthUsername).password(encoder.encode(this.basicAuthPassword)).roles(new String[]{"BASIC_USER"});
         }
     }
 
@@ -62,8 +57,7 @@ public class SecurityConfig {
         @Autowired
         private JwtAuthenticationEntryPoint unauthorizedHandler;
 
-        @Bean(BeanIds.AUTHENTICATION_MANAGER)
-        @Override
+        @Bean({"org.springframework.security.authenticationManager"})
         public AuthenticationManager authenticationManagerBean() throws Exception {
             return super.authenticationManagerBean();
         }
@@ -73,9 +67,8 @@ public class SecurityConfig {
             return new JwtAuthenticationFilter();
         }
 
-        @Override
         public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-            authenticationManagerBuilder.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
+            authenticationManagerBuilder.userDetailsService(this.customUserDetailsService).passwordEncoder(this.passwordEncoder());
         }
 
         @Bean
@@ -83,29 +76,10 @@ public class SecurityConfig {
             return new BCryptPasswordEncoder();
         }
 
-        @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.cors().and().csrf().disable().authorizeRequests().antMatchers("/auth/**", "/admin/**", "/txn/file/**",
-                            "/otp/**", "/swagger/**", "/swagger-ui/**", "/swagger-ui.html/**", "/configuration/**",
-                            "/swagger-ui/index.html/**", "/v3/api-docs/**", "/webjars/**", "/axisQr-txnNotifications",
-                            "/actuator/health", "/mqtt-txn-publish", "/mqtt-txn-subscribe", "/insert-axis-missing-data",
-                            "/actuator/prometheus/**", "/error,", "/txn/sync/**").permitAll()
-                    .anyRequest().authenticated().and().exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
-                    .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-            http.addFilterBefore((Filter) jwtAuthenticationFilter(), (Class<? extends Filter>) UsernamePasswordAuthenticationFilter.class);
+            ((HttpSecurity)((HttpSecurity)((ExpressionUrlAuthorizationConfigurer.AuthorizedUrl)((ExpressionUrlAuthorizationConfigurer.AuthorizedUrl)((HttpSecurity)((HttpSecurity)http.cors().and()).csrf().disable()).authorizeRequests().antMatchers(new String[]{"/auth/**", "/admin/**", "/txn/file/**", "/otp/**", "/swagger/**", "/swagger-ui/**", "/swagger-ui.html/**", "/configuration/**", "/swagger-ui/index.html/**", "/v3/api-docs/**", "/webjars/**", "/axisQr-txnNotifications", "/actuator/health", "/mqtt-txn-publish", "/mqtt-txn-subscribe", "/insert-axis-missing-data", "/actuator/prometheus/**", "/error,", "/txn/sync/**"})).permitAll().anyRequest()).authenticated().and()).exceptionHandling().authenticationEntryPoint(this.unauthorizedHandler).and()).sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+            http.addFilterBefore(this.jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
         }
-
-//        @Bean
-//        CorsConfigurationSource corsConfigurationSource() {
-//            CorsConfiguration configuration = new CorsConfiguration();
-//            configuration.setAllowCredentials(true);
-//            configuration.addAllowedOrigin("*");
-//            configuration.addAllowedHeader("*");
-//            configuration.addAllowedMethod("*");
-//            UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//            source.registerCorsConfiguration("/**", configuration);
-//            return source;
-//        }
 
         @Bean
         public CommonsRequestLoggingFilter requestLoggingFilter() {
@@ -117,17 +91,9 @@ public class SecurityConfig {
             return loggingFilter;
         }
 
-        //        @Bean(name = "asyncExecutor")
-//        public Executor asyncExecutor() {
-//            ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-//            executor.setCorePoolSize(50);
-//            executor.setMaxPoolSize(50);
-//            executor.setQueueCapacity(100);
-//            executor.setThreadNamePrefix("AsynchThread-");
-//            executor.initialize();
-//            return executor;
-//        }
-        @Bean(name = "asyncExecutor")
+        @Bean(
+                name = {"asyncExecutor"}
+        )
         public Executor asyncExecutor() {
             ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
             executor.setCorePoolSize(20);
@@ -138,6 +104,5 @@ public class SecurityConfig {
             executor.initialize();
             return executor;
         }
-
     }
 }
